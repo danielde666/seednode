@@ -1,0 +1,60 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.ui.segment {
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+}
+
+.ui.menu {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.ui.card, 
+.ui.cards>.card {
+  
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.ui.cards a.card:hover, 
+.ui.link.card:hover, 
+.ui.link.cards 
+.card:hover, 
+a.ui.card:hover {
+  border: none;
+  box-shadow: none;
+  transform: translateY(0px);
+}
+
+
+.ui.card img,
+.ui.cards>.card img,
+.column img{
+  object-fit: contain;
+}
+
+.ui.card>.content, .ui.cards>.card>.content{
+  border-top:none;
+}
