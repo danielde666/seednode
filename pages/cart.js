@@ -1,38 +1,23 @@
-import {client} from '../utils/shopify';
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import {Input,Segment,Button,Header,Label,Sticky,Grid,Container, Card, List} from 'semantic-ui-react'
-import { useState } from 'react';
+import { Grid } from "semantic-ui-react";
+import { useEffect, useState } from "react";
 
-
-
-const {Row, Column} = Grid;
+const { Row } = Grid;
 const Cart = () => {
+	const [checkoutId, setCheckoutId] = useState(null);
 
+	useEffect(() => {
+		if (window.localStorage) {
+			const id = window.localStorage.getItem("checkoutId");
 
+			setCheckoutId(id);
+		}
+	}, [setCheckoutId]);
 
-    
-    const storage = window.localStorage;
-    let checkoutId = storage.getItem('checkoutId');
-   
-   
+	return (
+		<Grid container centered>
+			<Row>Testing: {checkoutId}</Row>
+		</Grid>
+	);
+};
 
-
-
-    
-    return (
-        
-      <Grid container centered >
-        <Row>
-        
-        </Row>
-      </Grid>
-  
-    )
-  }
-
-
-  
-  
-  export default Cart
+export default Cart;
