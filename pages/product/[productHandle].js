@@ -20,6 +20,8 @@ const Post = ({ product, checkoutID, walletready }) => {
 
   const [price, setPrice] = useState(product.variants[0].price);
 
+  
+
 
 
 
@@ -44,7 +46,7 @@ const Post = ({ product, checkoutID, walletready }) => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ token: checkoutId })
+        body: JSON.stringify({ token: checkout })
       })
 
 
@@ -52,22 +54,6 @@ const Post = ({ product, checkoutID, walletready }) => {
     }
 
 
-
-
-
-
-
-    // const storage = window.localStorage;
-    // let checkoutId = storage.getItem('checkoutId');
-
-    // console.log(checkoutId);
-
-
-    // if(!checkoutId){
-    //   const checkout = await client.checkout.create();
-    //   checkoutId = checkout.id;
-    //   storage.setItem('checkoutId', checkoutId);
-    // }
 
     const cart = await client.checkout.addDiscount(checkoutID, "SEEDHOLDER");
     // storage.setItem('cart', JSON.stringify(cart));
