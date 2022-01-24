@@ -15,6 +15,7 @@ const { Row, Column } = Grid;
 const Post = ({ product, checkoutID, walletready }) => {
 
 
+  const [image, setImage] = useState(product.images[0]);
 
   const [price, setPrice] = useState(product.variants[0].price);
 
