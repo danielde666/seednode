@@ -14,8 +14,6 @@ import Router from 'next/router';
 const {Row, Column} = Grid;
 const Post = ({product,checkoutID,walletready,cart}) => {
 
-  let cart = cart; 
-
   
 const [image , setImage] = useState(product.images[0]);
 
