@@ -112,6 +112,13 @@ const addToCart =async (checkoutID) =>{
 
 
 
+  const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
+  storage.setItem('cart', JSON.stringify(cart));
+  console.log(cart)
+
+  setPrice(cart.subtotalPrice);
+
+
   Router.reload(window.location.pathname);
 
   
