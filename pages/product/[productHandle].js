@@ -69,8 +69,8 @@ const applyDiscount = async(checkoutID)=>{
   // }
 
   const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
-  storage.setItem('cart', JSON.stringify(cart));
-  console.log(cart)
+ // storage.setItem('cart', JSON.stringify(cart));
+  //console.log(cart)
 
 
 
