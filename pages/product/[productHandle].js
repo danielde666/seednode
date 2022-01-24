@@ -15,8 +15,6 @@ const { Row, Column } = Grid;
 const Post = ({ product, checkoutID, walletready }) => {
 
 
-  const [image, setImage] = useState(product.images[0]);
-
 
   const [price, setPrice] = useState(product.variants[0].price);
 
@@ -34,24 +32,24 @@ const Post = ({ product, checkoutID, walletready }) => {
 
 
 
-    //console.log(checkoutId);
-    if (checkoutID !== "null") {
+    console.log(checkoutID);
+    // if (checkoutID !== "null") {
 
 
-      const checkout = await client.checkout.create();
-      checkout = checkout.id;
+    //   const checkout = await client.checkout.create();
+    //   checkout = checkout.id;
 
-      fetch("/api/login", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ token: checkout })
-      })
+    //   fetch("/api/login", {
+    //     method: "post",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({ token: checkout })
+    //   })
 
 
 
-    }
+    // }
 
 
 
