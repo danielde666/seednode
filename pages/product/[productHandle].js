@@ -127,13 +127,13 @@ const addToCart =async (checkoutID) =>{
 
   const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 
-  fetch("/api/savecart",{
-    method:"post",
-    headers:{
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({token:cart})
-  })
+  // fetch("/api/savecart",{
+  //   method:"post",
+  //   headers:{
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({token:cart})
+  // })
 
   Router.reload(window.location.pathname);
 
@@ -190,7 +190,7 @@ const addToCart =async (checkoutID) =>{
       }
 
 
-      {checkoutID !== "null" && 
+      {cart !== "null" && 
 
     
        <Button onClick={() =>{
@@ -287,7 +287,7 @@ export async function getServerSideProps(context) {
     props: { 
       product: JSON.parse(JSON.stringify(product)),
       checkoutID:checkout || "null",
-      cart: JSON.parse(JSON.stringify(cart)),
+      cart: JSON.parse(JSON.stringify(cart)) || "null",
       walletready:walletready || "null",
 
     }, // will be passed to the page component as props
