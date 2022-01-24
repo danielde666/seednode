@@ -12,7 +12,7 @@ import Router from 'next/router';
 
 
 const {Row, Column} = Grid;
-const Post = ({product,checkoutID,walletready}) => {
+const Post = ({product,checkoutID,walletready,cart}) => {
 
   
 const [image , setImage] = useState(product.images[0]);
@@ -127,13 +127,13 @@ const addToCart =async (checkoutID) =>{
 
   const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 
-  fetch("/api/savecart",{
-    method:"post",
-    headers:{
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({token:cart})
-  })
+  // fetch("/api/savecart",{
+  //   method:"post",
+  //   headers:{
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({token:cart})
+  // })
 
   Router.reload(window.location.pathname);
 
@@ -198,7 +198,6 @@ const addToCart =async (checkoutID) =>{
 
 
         // const storage = window.localStorage;
-         const cart = client.checkout.fectch(checkoutID)
 
 
         Router.replace(cart.webUrl);
@@ -268,10 +267,15 @@ export async function getServerSideProps(context) {
 
   const productHandle = query.productHandle
   const product = await client.product.fetchByHandle(productHandle)
+  
+  
 
   const checkout = req.cookies.checkoutID
   
-  const cart = req.cookies.cart
+ 
+
+  
+  const cart = await client.checkout.fectch(checkout)
 
 
   const walletready = req.cookies.walletready
@@ -289,6 +293,7 @@ export async function getServerSideProps(context) {
       checkoutID:checkout || "null",
       
       walletready:walletready || "null",
+      cart: JSON.parse(JSON.stringify(cart)),
 
     }, // will be passed to the page component as props
     
