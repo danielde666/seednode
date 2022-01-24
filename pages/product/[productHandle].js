@@ -196,6 +196,8 @@ const addToCart =async (checkoutID) =>{
        <Button onClick={() =>{
 
 
+          let cart = cart 
+        // const storage = window.localStorage;
 
 
         Router.replace(cart.webUrl);
@@ -268,8 +270,8 @@ export async function getServerSideProps(context) {
 
   const checkout = req.cookies.checkoutID
 
-  //const cart = client.checkout.fetch(checkout)
-  const cart = req.cookies.cart
+  const cart = client.checkout.fetch(checkout)
+ 
 
 
   const walletready = req.cookies.walletready
@@ -285,7 +287,7 @@ export async function getServerSideProps(context) {
     props: { 
       product: JSON.parse(JSON.stringify(product)),
       checkoutID:checkout || "null",
-      cart: JSON.parse(JSON.stringify(cart)) || "null",
+      cart: JSON.parse(JSON.stringify(cart)) ||"null",
       walletready:walletready || "null",
 
     }, // will be passed to the page component as props
