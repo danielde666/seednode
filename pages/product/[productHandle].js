@@ -193,12 +193,12 @@ const addToCart =async (checkoutID) =>{
       {checkoutID !== "null" && 
 
     
-       <Button onClick={() =>{
+       <Button onClick={ async() =>{
 
 
 
         // const storage = window.localStorage;
-         const carturl = client.checkout.fetch(checkoutID);
+         const carturl = await client.checkout.fetch(checkoutID);
 
 
         Router.replace(carturl.webUrl);
