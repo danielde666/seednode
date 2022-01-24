@@ -25,26 +25,52 @@ const [price, setPrice] = useState(product.variants[0].price);
 const[quantity, setQuantity] = [1];
 
 
-const applyDiscount = async()=>{
+const applyDiscount = async(checkoutID)=>{
   
+  let checkoutId = checkoutID;
 
 
-  
-  const storage = window.localStorage;
-  let checkoutId = storage.getItem('checkoutId');
-  
-  console.log(checkoutId);
+
+  //console.log(checkoutId);
+  if(checkoutId !== "null"){
 
 
-  if(!checkoutId){
     const checkout = await client.checkout.create();
     checkoutId = checkout.id;
-    storage.setItem('checkoutId', checkoutId);
+
+    fetch("/api/login",{
+      method:"post",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({token:checkoutId})
+    })
+
+
+
   }
+  
+
+
+
+  
+
+  
+  // const storage = window.localStorage;
+  // let checkoutId = storage.getItem('checkoutId');
+  
+  // console.log(checkoutId);
+
+
+  // if(!checkoutId){
+  //   const checkout = await client.checkout.create();
+  //   checkoutId = checkout.id;
+  //   storage.setItem('checkoutId', checkoutId);
+  // }
 
   const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
-  storage.setItem('cart', JSON.stringify(cart));
-  console.log(cart)
+ // storage.setItem('cart', JSON.stringify(cart));
+  //console.log(cart)
 
 
 
@@ -170,11 +196,12 @@ const addToCart =async (checkoutID) =>{
        <Button onClick={() =>{
 
 
-        const storage = window.localStorage;
-        const cart = JSON.parse(storage.getItem("cart"));
+
+        // const storage = window.localStorage;
+         const carturl = client.checkout.fetch(checkoutID);
 
 
-        Router.replace(cart.webUrl);
+        Router.replace(carturl.webUrl);
 
 
       }}>CHECKOUT</Button>

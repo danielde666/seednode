@@ -19,15 +19,17 @@ export default function Home({products}) {
       <Card.Group itemsPerRow={3}>
       {products.map((product) => {
           return(
-            <Link href={`/product/${product.handle}`}>
-              <Card>
-                <Image src={product.images[0].src}  width={500} height={500} />
-                <Card.Content>
+            <Link key={product.title} href={`/product/${product.handle}`}>
+              <a>
+                <Card>
+                  <Image alt={product.title} src={product.images[0].src} width={500} height={500} />
+                  <Card.Content>
 
-                <Header as="h3">{product.title}</Header>
-                <span>{product.variants[0].price}</span>
-                </Card.Content>
-              </Card>
+                  <Header as="h3">{product.title}</Header>
+                  <span>{product.variants[0].price}</span>
+                  </Card.Content>
+                </Card>
+              </a>
             </Link>
           );
         })}
@@ -67,5 +69,3 @@ export async function getServerSideProps(context) {
     }, // will be passed to the page component as props
   }
 }
-
-
