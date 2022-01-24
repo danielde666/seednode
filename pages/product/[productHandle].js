@@ -12,7 +12,7 @@ import Router from 'next/router';
 
 
 const {Row, Column} = Grid;
-const Post = ({product,checkoutID,walletready,cart}) => {
+const Post = ({product,checkoutID,walletready}) => {
 
   
 const [image , setImage] = useState(product.images[0]);
@@ -25,52 +25,26 @@ const [price, setPrice] = useState(product.variants[0].price);
 const[quantity, setQuantity] = [1];
 
 
-const applyDiscount = async(checkoutID)=>{
+const applyDiscount = async()=>{
   
-  let checkoutId = checkoutID;
 
 
+  
+  const storage = window.localStorage;
+  let checkoutId = storage.getItem('checkoutId');
+  
+  console.log(checkoutId);
 
-  //console.log(checkoutId);
-  if(checkoutId !== "null"){
 
-
+  if(!checkoutId){
     const checkout = await client.checkout.create();
     checkoutId = checkout.id;
-
-    fetch("/api/login",{
-      method:"post",
-      headers:{
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({token:checkoutId})
-    })
-
-
-
+    storage.setItem('checkoutId', checkoutId);
   }
-  
-
-
-
-  
-
-  
-  // const storage = window.localStorage;
-  // let checkoutId = storage.getItem('checkoutId');
-  
-  // console.log(checkoutId);
-
-
-  // if(!checkoutId){
-  //   const checkout = await client.checkout.create();
-  //   checkoutId = checkout.id;
-  //   storage.setItem('checkoutId', checkoutId);
-  // }
 
   const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
- // storage.setItem('cart', JSON.stringify(cart));
-  //console.log(cart)
+  storage.setItem('cart', JSON.stringify(cart));
+  console.log(cart)
 
 
 
@@ -102,13 +76,22 @@ const addToCart =async (checkoutID) =>{
     const checkout = await client.checkout.create();
     checkoutId = checkout.id;
 
-    fetch("/api/login",{
-      method:"post",
-      headers:{
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({token:checkoutId})
-    })
+    // fetch("/api/login",{
+    //   method:"post",
+    //   headers:{
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({token:checkoutId})
+    // })
+
+    
+
+  if(!checkoutId){
+    const checkout = await client.checkout.create();
+    checkoutId = checkout.id;
+    storage.setItem('checkoutId', checkoutId);
+  }
+
 
 
 
@@ -127,13 +110,7 @@ const addToCart =async (checkoutID) =>{
 
   const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 
-  fetch("/api/savecart",{
-    method:"post",
-    headers:{
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({token:cart})
-  })
+
 
   Router.reload(window.location.pathname);
 
@@ -152,18 +129,7 @@ const addToCart =async (checkoutID) =>{
           </br>
             <Image src={image.src}  width={500} height={500}/>
           </Row>
-          {/* <Row>
-            <List horizontal divided>
-              {product.images.map((image, index) => {
-                return  (
-
-                <List.Item onClick={() => setImage(image)}>
-                  <Image  src={image.src} size={'small'} width={100} height={100}/>
-                </List.Item>
-                )
-              })}
-            </List>
-          </Row> */}
+       
         </Column>
 
         <Column style={{marginTop:50}} width={6}>
@@ -196,10 +162,10 @@ const addToCart =async (checkoutID) =>{
        <Button onClick={() =>{
 
 
-          let cart = cart 
-        // const storage = window.localStorage;
+        const storage = window.localStorage;
+        const cart = JSON.parse(storage.getItem("cart"));
 
-        console.log(cart);
+
         Router.replace(cart.webUrl);
 
 
@@ -269,9 +235,8 @@ export async function getServerSideProps(context) {
   const product = await client.product.fetchByHandle(productHandle)
 
   const checkout = req.cookies.checkoutID
-
-  const cart = client.checkout.fetch(checkout)
- 
+  
+  const cart = req.cookies.cart
 
 
   const walletready = req.cookies.walletready
@@ -287,7 +252,7 @@ export async function getServerSideProps(context) {
     props: { 
       product: JSON.parse(JSON.stringify(product)),
       checkoutID:checkout || "null",
-      cart: JSON.parse(JSON.stringify(cart)) ||"null",
+      
       walletready:walletready || "null",
 
     }, // will be passed to the page component as props
