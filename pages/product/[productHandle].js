@@ -199,7 +199,7 @@ const addToCart =async (checkoutID) =>{
           let cart = cart 
         // const storage = window.localStorage;
 
-
+        console.log(cart);
         Router.replace(cart.webUrl);
 
 
