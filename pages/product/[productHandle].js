@@ -12,7 +12,7 @@ import Router from 'next/router';
 
 
 const {Row, Column} = Grid;
-const Post = ({product,checkoutID,walletready}) => {
+const Post = ({product,checkoutID,walletready,cart}) => {
 
   
 const [image , setImage] = useState(product.images[0]);
@@ -196,9 +196,8 @@ const addToCart =async (checkoutID) =>{
        <Button onClick={() =>{
 
 
-
+          let cart = cart 
         // const storage = window.localStorage;
-         const cart = client.checkout.fetch(checkoutID)
 
 
         Router.replace(cart.webUrl);
@@ -270,8 +269,9 @@ export async function getServerSideProps(context) {
   const product = await client.product.fetchByHandle(productHandle)
 
   const checkout = req.cookies.checkoutID
-  
-  const cart = req.cookies.cart
+
+  const cart = client.checkout.fetch(checkout)
+ 
 
 
   const walletready = req.cookies.walletready
@@ -287,7 +287,7 @@ export async function getServerSideProps(context) {
     props: { 
       product: JSON.parse(JSON.stringify(product)),
       checkoutID:checkout || "null",
-      
+      cart: JSON.parse(JSON.stringify(cart)),
       walletready:walletready || "null",
 
     }, // will be passed to the page component as props
