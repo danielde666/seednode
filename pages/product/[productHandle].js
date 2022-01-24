@@ -196,8 +196,9 @@ const addToCart =async (checkoutID) =>{
        <Button onClick={() =>{
 
 
-        const storage = window.localStorage;
-        const cart = JSON.parse(storage.getItem("cart"));
+
+        // const storage = window.localStorage;
+         const cart = client.checkout.fectch(checkoutID)
 
 
         Router.replace(cart.webUrl);
