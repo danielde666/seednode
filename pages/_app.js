@@ -38,49 +38,19 @@ const onboard = Onboard({
       
     }
   }
-
-  
-
 });
 
 async function login (props){
-
-
   await onboard.walletSelect();
   const readyToTransact = await onboard.walletCheck();
-
-
-
   cookieCutter.set('walletready', readyToTransact);
-
-
-
   if (readyToTransact){
-  
-
     Router.push(window.location.pathname)
-  
   }
-
-
 }
 
 async function logout (){
-
-
   await onboard.walletReset()
-
-
-
-  fetch("/api/walletready",{
-    method:"post",
-    headers:{
-    "Content-Type": "application/json"
-    },
-    body: JSON.stringify({})
-  })
-
-
 }
 
 
@@ -91,66 +61,33 @@ async function logout (){
 
 
 const Navbar = (walletready) => {
+  
   const [fixed, setFixed] = useState(false);
 
 
-
-
-
-
-
-  return (<Visibility
+  return (
+  <Visibility
     once={false}
     onBottomPassed={() => setFixed(true)}
     onBottomPassedReverse={() =>setFixed(false)}
   >
     <Segment
-    
     textAlign='center'
     style={{minHeight:50,padding:'1em 2em'}}
     >
       <Menu
         fixed={fixed ? "top" : null}
         borderless
-       
-  
       >
         <Container>
-          
-            <Link href="/">
+          <Link href="/">
             <Menu.Item>Lucien Smith Studio </Menu.Item>
-            </Link>
-         
-       
-    
-
+          </Link>
           <Menu.Item position='right'>
-           
-            
-
-
-
             <Button onClick={login} position="right">
-        
-
              CONNECT WALLET
               </Button>
-          
-        
-
-</Menu.Item>
-            
-            
-            
-            
-
-
-
-
-
-           
-        
-
+          </Menu.Item>
         </Container>
       </Menu>
     </Segment>
