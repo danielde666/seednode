@@ -35,7 +35,7 @@ const applyDiscount = async()=>{
   cookieCutter.set('cartUrl', cartUrl);
   setPrice(carttotal);
   
-  Router.replace(window.location.pathname);
+  Router.reload(window.location.pathname);
 
 }
 
@@ -62,7 +62,7 @@ const addToCart =async () =>{
   cookieCutter.set('carttotal', carttotal);
   cookieCutter.set('cartUrl', cartUrl);
 
-  Router.replace(window.location.pathname);
+  Router.reload(window.location.pathname);
 }
 
 
