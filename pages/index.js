@@ -1,4 +1,4 @@
-import {client} from '../../utils/shopify';
+import {client} from '../utils/shopify';
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
