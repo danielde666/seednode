@@ -9,6 +9,8 @@ import Router from 'next/router'
 const {Row, Column} = Grid;
 
 export default function Home({product},checkoutID,walletready) {
+
+
   return (
     <Grid container centered >
       <Row>
@@ -21,10 +23,18 @@ export default function Home({product},checkoutID,walletready) {
         <Column style={{marginTop:50}} width={6}>
           <Header as="h3">{product.title}</Header>
           <p>{product.description}</p>
+
+          
+          {walletready !=="null" &&
+          <Button onClick={() => applyDiscount()} >Apply Discount</Button>
+          }
+
         </Column>
       </Row>
     </Grid>
   )
+
+
 }
 
 
