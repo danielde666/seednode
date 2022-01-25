@@ -104,8 +104,6 @@ export default function Home(product,walletready,Grid) {
 
 
        <Button onClick={() =>{
-
-
         const storage = window.localStorage;
         const cart = JSON.parse(storage.getItem("cart"));
         if (cart !== ""){
