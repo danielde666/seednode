@@ -90,7 +90,7 @@ const Post = ({product,walletready}) => {
          </span>
 
      
-        {walletready &&
+        {walletready !=="null" &&
           <Button onClick={() => applyDiscount()} >Apply Discount</Button>
         } 
         <Button onClick={() =>{
