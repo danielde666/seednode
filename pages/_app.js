@@ -15,6 +15,7 @@ import {
   Visibility
 } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import '../styles/inter.css';
 import '../styles/globals.css';
 import { Component } from 'react';
 import Onboard from 'bnc-onboard'
@@ -106,8 +107,7 @@ const Footer = () =>{
         <Link href="https://luciensmithstudio.substack.com/">Substack</Link><br></br><br></br>
 
 
-        ©2022 Lucien Smith Studio. All rights reserved. <br></br>
-        <Link href="/privacy-policy">Privacy Polic</Link><br></br>
+        ©2022 Lucien Smith Studio. All rights reserved. <Link href="/privacy-policy">Privacy Policy</Link><br></br>
     </footer>
     
     
