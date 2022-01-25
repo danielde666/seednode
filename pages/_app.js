@@ -93,11 +93,38 @@ const Navbar = (walletready) => {
   )
 }
 
+
+const Footer = () =>{
+  return(
+
+    <>
+
+    <footer>
+    <div class="grid__item one-whole text-left">
+      <div class="sociallinks">
+
+        <a href="https://www.instagram.com/feareatsthesoil/?hl=en" target="_blank"><span>Instagram</span></a>
+        <a href="https://twitter.com/feareatsthesoil" target="_blank"><span>Twitter</span></a>
+
+        <a href="https://luciensmithstudio.substack.com/" target="_blank" rel="noreferrer noopener">Substack</a>
+
+
+      </div>
+      <span class="copyright">©2022 Lucien Smith Studio. All rights reserved. 
+        <a href="/privacy-policy"><span>Privacy Policy</span></a></span>
+    </div>    </footer>
+    
+    
+    </>
+  )
+}
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Navbar/>
       <Component {...pageProps} />
+      <Footer/>
     </>
   )
 }

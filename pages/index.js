@@ -79,6 +79,8 @@ const Post = ({product,walletready}) => {
         <Column style={{marginTop:50}} width={6}>
 
         <Header as="h3">{product.title}</Header>
+
+        <><p>Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8.5 x 10 in<br></br> 64 x 96 cm</p></>
         <p>{product.description}</p>
 
         <br></br>
@@ -104,7 +106,9 @@ const Post = ({product,walletready}) => {
         </Column>
       </Row>
     </Grid>
-
+  
+      
+    
   )
 }
 
