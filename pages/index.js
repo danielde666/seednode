@@ -71,6 +71,8 @@ export default function Home({product},checkoutID,walletready) {
           {checkout ? 'checkout' : 'none'}
 
           
+
+          
           {walletready !== null && (
             <button
             onClick={async () => {
@@ -81,6 +83,11 @@ export default function Home({product},checkoutID,walletready) {
             Discount
           </button>
           )}
+
+          {checkout ? <Button onClick= {getShopifyCheckoutURL()}>Add To Cart</Button> : <Button onClick= {createCheckout()}>Add To Cart</Button> }
+        
+
+
 
         </Column>
       </Row>
