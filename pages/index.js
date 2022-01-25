@@ -84,9 +84,7 @@ export default function Home({product},checkoutID,walletready) {
           </button>
           )}
 
-          {checkout ? `<Button onClick= {getShopifyCheckoutURL()}>Add To Cart</Button>` : `<Button onClick= {createCheckout()}>Add To Cart</Button>` }
-        
-
+        <Button onClick= {checkout ? getShopifyCheckoutURL() : createCheckout()}>Add To Cart</Button>
 
 
         </Column>
