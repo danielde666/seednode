@@ -20,6 +20,8 @@ import { Component } from 'react';
 import Onboard from 'bnc-onboard'
 import Web3 from 'web3';
 import { withRouter } from 'next/router'
+import cookieCutter from 'cookie-cutter'
+
 
 
 
@@ -48,13 +50,9 @@ async function login (props){
   const readyToTransact = await onboard.walletCheck();
 
 
-  fetch("/api/walletready",{
-    method:"post",
-    headers:{
-    "Content-Type": "application/json"
-    },
-    body: JSON.stringify({token:readyToTransact})
-  })
+
+  cookieCutter.set('walletready', readyToTransact);
+
 
 
   if (readyToTransact){
