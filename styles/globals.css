@@ -73,14 +73,15 @@ footer{
 
 
 
-.ui.button {
-  background: #ffffff none;
-  font-family: 'Inter',Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
-
-  padding: 0.78571429em;
-
+.ui.button,.ui.button:hover {
+    background: #fff none;
+    font-family: Inter,Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+    padding: 0;
+    color: #000;
+    margin-right: 10px;
+    margin-top: 20px;
 }
+.ui.button:hover {
 
-.ui.button:first-child{
-  margin-left:-.078571429em;
+  text-decoration: underline;
 }
