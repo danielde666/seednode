@@ -7,10 +7,10 @@ import styles from '../styles/Home.module.css'
 import Router from 'next/router'
 import { useState,useEffect } from 'react'
 
-
-export default function Home({product},walletready) {
-  
 const {Row, Column} = Grid;
+
+export default function Home(product,walletready,Grid) {
+  
   const [image , setImage] = useState(product.images[0]);
   const quantity = 1;
   const [price, setPrice] = useState(product.variants[0].price);
