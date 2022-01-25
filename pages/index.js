@@ -32,7 +32,7 @@ export default function Home({product},checkoutID,walletready) {
 
     if (checkout === null ) {
 
-        const checkout = await client.checkout.create();
+        const checkout =  client.checkout.create();
         checkoutId = checkout.id;
         
         fetch("/api/login", {
