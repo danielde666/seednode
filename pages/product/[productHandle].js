@@ -17,12 +17,14 @@ const Post = ({product}) => {
   const [price, setPrice] = useState(product.variants[0].price);
   const [cartUrl, setUrl] = useState(window.location.pathname);
 
-  const checkoutId = cookieCutter.get('checkoutId'); 
+  
   const walletready = cookieCutter.get('walletready'); 
 
 
 
-  async function addtoCart (checkoutId){
+  async function addtoCart (){
+
+
     if(!checkoutId){
       const cart = await client.checkout.create();
       const checkoutId = cart.id;
@@ -46,7 +48,8 @@ const Post = ({product}) => {
     }
   }
   
-  async function applyDiscount (checkoutId){
+  async function applyDiscount (){
+    
     if(!checkoutId){
       const cart = await client.checkout.create();
       const checkoutId = cart.id;
