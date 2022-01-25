@@ -126,18 +126,7 @@ const addToCart =async (checkoutID) =>{
           </br>
             <Image src={image.src}  width={500} height={500}/>
           </Row>
-          {/* <Row>
-            <List horizontal divided>
-              {product.images.map((image, index) => {
-                return  (
 
-                <List.Item onClick={() => setImage(image)}>
-                  <Image  src={image.src} size={'small'} width={100} height={100}/>
-                </List.Item>
-                )
-              })}
-            </List>
-          </Row> */}
         </Column>
 
         <Column style={{marginTop:50}} width={6}>
