@@ -31,19 +31,25 @@ export default function Home({product},checkoutID,walletready) {
       setCheckoutURL(savedCheckout.weburl);
     }; 
 
+
+    const createCheckout= async () => {
+      const checkout =  await client.checkout.create();
+      checkoutId = checkout.id;
+      
+      fetch("/api/login", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ token: checkoutId })
+      })
+      getShopifyCheckoutURL(checkoutId);
+
+    }
+
     if (checkout === null ) {
 
-        const checkout =  client.checkout.create();
-        checkoutId = checkout.id;
-        
-        fetch("/api/login", {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ token: checkoutId })
-        })
-        getShopifyCheckoutURL(checkoutId);
+        createCheckout();
 
     }
 
