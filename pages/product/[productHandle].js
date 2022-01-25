@@ -15,6 +15,59 @@ const {Row, Column} = Grid;
 const Post = ({product}) => {
 
   const [price, setPrice] = useState(product.variants[0].price);
+  const [cartUrl, setUrl] = useState('');
+  const walletready = cookieCutter.get('walletready'); 
+
+
+
+  async function addtoCart (){
+
+
+    if(!checkoutId){
+      const cart = await client.checkout.create();
+      const checkoutId = cart.id;
+      cookieCutter.set('checkoutId', checkoutId);
+    }
+    if (checkoutId){
+      const lineItemsToAdd = [
+        {
+          variantId: product.variants[0].id,
+          quantity: 1
+        }
+      ];
+      const updatedcart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+      const carttotal = updatedcart.subtotalPrice;
+      const cartUrl = updatedcart.checkoutUrl;
+      cookieCutter.set('carttotal', carttotal);
+      cookieCutter.set('cartUrl', cartUrl);
+      setPrice(carttotal);
+      setUrl(cartUrl);
+      Router.push(window.location.pathname)
+    }
+  }
+  
+  async function applyDiscount (){
+    
+    if(!checkoutId){
+      const cart = await client.checkout.create();
+      const checkoutId = cart.id;
+      cookieCutter.set('checkoutId', checkoutId);
+    }
+    if (checkoutId){
+      const discountedcart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
+      const discountedcarttotal = discountedcart.subtotalPrice;
+      const discountedcarturl = discountedcart.checkoutUrl;
+      cookieCutter.set('discountedcarttotal', discountedcarttotal);
+      cookieCutter.set('discountedcarturl', discountedcarturl);
+      setPrice(carttotal);
+      setUrl(discountedcarturl);
+      Router.push(window.location.pathname)
+    }
+  }
+  
+  
+
+
 
 
 
@@ -39,7 +92,14 @@ const Post = ({product}) => {
           SUBTOTAL: {price}
           </span>
       </>
-
+      {cookieCutter.get('walletready')  &&
+        <Button onClick={() => applyDiscount()} >Apply Discount</Button>
+      }
+      {cartUrl && 
+        <Button onClick={() =>{
+                Router.replace({cartUrl});
+          }}>CHECKOUT</Button>
+      }
 
         
         <Button onClick={() => addtoCart()} >Add to Cart</Button>
