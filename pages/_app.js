@@ -35,7 +35,7 @@ const onboard = Onboard({
     wallet: wallet => {
       web3 = new Web3(wallet.provider);
       console.log(`${wallet.name} is now connected`);
-      const walletname = ${wallet.name};
+      const walletname =wallet.name;
     }
   }
 });
