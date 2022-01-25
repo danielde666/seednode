@@ -1,76 +1,124 @@
+import {client} from '../../utils/shopify';
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import {Segment, Button,Header,Label,Sticky,Grid,Container, Card} from 'semantic-ui-react'
-import {client} from '../utils/shopify'
-import styles from '../styles/Home.module.css'
-import Router from 'next/router'
-import { useState,useEffect } from 'react'
+import {Input,Segment,Button,Header,Label,Sticky,Grid,Container, Card, List} from 'semantic-ui-react'
+import { useState } from 'react';
+
+
+
+import Router from 'next/router';
+
+
 
 const {Row, Column} = Grid;
+const Post = ({product,checkoutID,walletready}) => {
 
-export default function Home(product,walletready,Grid) {
   
-  const [image , setImage] = useState(product.images[0]);
-  const quantity = 1;
-  const [price, setPrice] = useState(product.variants[0].price);
-  
-  
+const [image , setImage] = useState(product.images[0]);
+
+
+const [price, setPrice] = useState(product.variants[0].price);
 
 
 
+const[quantity, setQuantity] = [1];
 
-  const applyDiscount = async()=>{
 
-    const storage = window.localStorage;
-    let checkoutId = storage.getItem('checkoutId');
-    
-    console.log(checkoutId);
+const applyDiscount = async()=>{
   
 
-    if(!checkoutId){
-      const checkout = await client.checkout.create();
-      checkoutId = checkout.id;
-      storage.setItem('checkoutId', checkoutId);
-    }
+
   
-    const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
-    storage.setItem('cart', JSON.stringify(cart));
-    console.log(cart)
-    setPrice(cart.subtotalPrice);
+  const storage = window.localStorage;
+  let checkoutId = storage.getItem('checkoutId');
+  
+  console.log(checkoutId);
+
+
+  if(!checkoutId){
+    const checkout = await client.checkout.create();
+    checkoutId = checkout.id;
+    storage.setItem('checkoutId', checkoutId);
   }
 
-  const addToCart =async () =>{
-
-    
-    const storage = window.localStorage;
-    let checkoutId = storage.getItem('checkoutId');
-    //console.log(checkoutId);
-    if(!checkoutId){
-      const checkout = await client.checkout.create();
-      checkoutId = checkout.id;
-      storage.setItem('checkoutId', checkoutId);
-    }
-    
-    const lineItemsToAdd = [
-      {
-        variantId: product.variants[0].id,
-        quantity
-      }
-    ];
-
-    const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-    storage.setItem('cart', JSON.stringify(cart));
-    console.log(cart)
-    
-    setPrice(cart.subtotalPrice);
+  const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
+  storage.setItem('cart', JSON.stringify(cart));
+  console.log(cart)
 
 
-    
+
+  setPrice(cart.subtotalPrice);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+const addToCart =async (checkoutID) =>{
+
+
+  let checkoutId = checkoutID;
+
+
+
+  //console.log(checkoutId);
+  if(checkoutId !== "null"){
+
+
+    const checkout = await client.checkout.create();
+    checkoutId = checkout.id;
+
+    fetch("/api/login",{
+      method:"post",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({token:checkoutId})
+    })
+
+
+
   }
+  
+  const lineItemsToAdd = [
+    {
+      variantId: product.variants[0].id,
+      quantity
+      //customAttributes: [{key: "MyKey", value: "MyValue"}]
+    }
+  ];
+
+
+
+
+  const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+
+  fetch("/api/savecart",{
+    method:"post",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({token:cart})
+  })
+
+  Router.reload(window.location.pathname);
+
+  
+}
+
+
+
 
   return (
-     <Grid container centered >
+    <Grid container centered >
       <Row>
         <Column width={10}>
           <Row>
@@ -78,7 +126,18 @@ export default function Home(product,walletready,Grid) {
           </br>
             <Image src={image.src}  width={500} height={500}/>
           </Row>
-      
+          {/* <Row>
+            <List horizontal divided>
+              {product.images.map((image, index) => {
+                return  (
+
+                <List.Item onClick={() => setImage(image)}>
+                  <Image  src={image.src} size={'small'} width={100} height={100}/>
+                </List.Item>
+                )
+              })}
+            </List>
+          </Row> */}
         </Column>
 
         <Column style={{marginTop:50}} width={6}>
@@ -88,7 +147,9 @@ export default function Home(product,walletready,Grid) {
 
         <br></br>
 
-        <span> {price} </span>
+        <span> {price}
+        
+         </span>
 
 
         <br></br>
@@ -96,27 +157,23 @@ export default function Home(product,walletready,Grid) {
 
 
 
-
-      {walletready !=="null" &&
+        {walletready !=="null" &&
      
-         <Button onClick={() => applyDiscount()} >Apply Discount</Button>
-      }
+     <Button onClick={() => applyDiscount()} >Apply Discount</Button>
+  }
 
 
-       <Button onClick={() =>{
-        const storage = window.localStorage;
-        const cart = JSON.parse(storage.getItem("cart"));
-        if (cart !== ""){
-          Router.replace(cart.webUrl);
-        }
-      }}>CHECKOUT</Button>
-  
+   <Button onClick={() =>{
+    const storage = window.localStorage;
+    const cart = JSON.parse(storage.getItem("cart"));
+    if (cart !== ""){
+      Router.replace(cart.webUrl);
+    }
+  }}>CHECKOUT</Button>
 
 
-        <Button onClick={addToCart()}>Add To Cart</Button>
 
-   
-
+    <Button onClick={addToCart()}>Add To Cart</Button>
 
         <br>
         
@@ -126,25 +183,49 @@ export default function Home(product,walletready,Grid) {
         </Column>
       </Row>
     </Grid>
+
   )
-
-
 }
-
-
 
 export async function getServerSideProps(context) {
 
-  const {req}=context
-  const product = await client.product.fetchByHandle("carrot-seed-packet")
+  const {req, query}=context
+
+  const productHandle = query.productHandle
+  const product = await client.product.fetchByHandle(productHandle)
+
+  const checkout = req.cookies.checkoutID
+  
+  const cart = req.cookies.cart
+
+
   const walletready = req.cookies.walletready
   
+  
+
+
+  console.log(product)
+  console.log(checkout)
+
 
   return {
     props: { 
       product: JSON.parse(JSON.stringify(product)),
+      checkoutID:checkout || "null",
+      
       walletready:walletready || "null",
 
     }, // will be passed to the page component as props
+    
+
   }
+
+
 }
+
+
+
+
+
+
+export default Post
