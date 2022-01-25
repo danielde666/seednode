@@ -101,13 +101,13 @@ const Footer = () =>{
 
     <footer>
 
-        <a href="https://www.instagram.com/feareatsthesoil/?hl=en"><span>Instagram</span></a><br></br>
-        <a href="https://twitter.com/feareatsthesoil"><span>Twitter</span></a><br></br>
-        <a href="https://luciensmithstudio.substack.com/">Substack</a><br></br><br></br>
+        <Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link><br></br>
+        <Link href="https://twitter.com/feareatsthesoil">Twitter</Link><br></br>
+        <Link href="https://luciensmithstudio.substack.com/">Substack</Link><br></br><br></br>
 
 
         ©2022 Lucien Smith Studio. All rights reserved. <br></br>
-        <a href="/privacy-policy">Privacy Polic</a><br></br>
+        <Link href="/privacy-policy">Privacy Polic</Link><br></br>
     </footer>
     
     
