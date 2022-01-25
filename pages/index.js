@@ -9,6 +9,8 @@ import { useState,useEffect } from 'react'
 
 
 export default function Home({product},walletready) {
+  
+const {Row, Column} = Grid;
   const [image , setImage] = useState(product.images[0]);
   const quantity = 1;
   const [price, setPrice] = useState(product.variants[0].price);
