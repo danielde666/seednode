@@ -15,7 +15,7 @@ const {Row, Column} = Grid;
 const Post = ({product}) => {
 
   const [price, setPrice] = useState(product.variants[0].price);
-  const [cartUrl, setUrl] = useState(window.location.pathname);
+  const [cartUrl, setUrl] = useState();
 
   
   const walletready = cookieCutter.get('walletready'); 
