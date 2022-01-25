@@ -95,7 +95,7 @@ const Post = ({product,walletready}) => {
         {walletready !=="null" &&
           <><Button onClick={() => applyDiscount()}>Apply Discount</Button><br></br><br></br></>
         } 
-         <Button onClick={() => addToCart()} >Add To Cart</Button>
+         <Button onClick={() => addToCart()} >Add To Cart</Button> 
         <Button onClick={() =>{
           const storage = window.localStorage;
           const cart = JSON.parse(storage.getItem("cart"));

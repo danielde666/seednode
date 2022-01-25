@@ -77,6 +77,10 @@ footer{
   background: #ffffff none;
   font-family: 'Inter',Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
 
-  padding: 0.78571429em 0;
+  padding: 0.78571429em;
 
+}
+
+.ui.button:first-child{
+  margin-left:-.078571429em;
 }
