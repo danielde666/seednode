@@ -86,14 +86,14 @@ const Post = ({product,walletready}) => {
         <br></br>
 
         <span> 
-          Price : {product.variants[0].price}
-          Subtotal: {price}
+          Price : {product.variants[0].price}<br></br>
+          Subtotal: {price}<br></br>
         
          </span>
 
      
         {walletready !=="null" &&
-          <Button onClick={() => applyDiscount()} >Apply Discount</Button>
+          <Button onClick={() => applyDiscount()} >Apply Discount</Button><br></br>
         } 
         <Button onClick={() =>{
           const storage = window.localStorage;
