@@ -84,9 +84,9 @@ const Navbar = (walletready) => {
             <Menu.Item>Lucien Smith Studio </Menu.Item>
           </Link>
           <Menu.Item position='right'>
-            <Button onClick={login} position="right">
+            <Link onClick={login} position="right">
              CONNECT WALLET
-              </Button>
+              </Link>
           </Menu.Item>
         </Container>
       </Menu>
