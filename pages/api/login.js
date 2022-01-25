@@ -7,7 +7,7 @@ export default (req, res) => {
         "Set-Cookie",
         cookie.serialize("checkoutID",req.body.token,{
             httpOnly:true,
-            //secure:process.env.NODE_ENV !== "development",
+            secure:process.env.NODE_ENV !== "development",
             maxAge: 60 * 60,
             sameSite:"strict",
             path:"/",

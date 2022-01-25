@@ -15,11 +15,14 @@ import {
   Visibility
 } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import '../styles/inter.css';
 import '../styles/globals.css';
 import { Component } from 'react';
 import Onboard from 'bnc-onboard'
 import Web3 from 'web3';
 import { withRouter } from 'next/router'
+import cookieCutter from 'cookie-cutter'
+
 
 
 
@@ -32,57 +35,54 @@ const onboard = Onboard({
     wallet: wallet => {
       web3 = new Web3(wallet.provider);
       console.log(`${wallet.name} is now connected`)
-
-      
     }
   }
-
-  
-
 });
 
 async function login (props){
 
 
+
   await onboard.walletSelect();
   const readyToTransact = await onboard.walletCheck();
-
-
-  fetch("/api/walletready",{
-    method:"post",
-    headers:{
-    "Content-Type": "application/json"
-    },
-    body: JSON.stringify({token:readyToTransact})
-  })
+  cookieCutter.set('walletready', readyToTransact);
 
 
   if (readyToTransact){
-  
 
+
+
+    //seed api here 
+    // set seed verification in cookie 
+    // index will check for seed cookie instead of wallet 
+
+
+
+
+      // fetch("https://ae-backend.staging.lobus.io/validate-nft-ownership",{
+      //   method:"post",
+      //   headers:{
+      //   "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify({
+      //     "message": "hi",
+      //     "signature":{walletname},
+      //     "contractAddress": "0x36c5d285ca9bb42f367468ed0f44448dc5dcfedb"
+      //   }).then(response => response.json()).then(data => console.log(data));
+      // })
+
+    
     Router.push(window.location.pathname)
-  
+
+
+
+
+
   }
-
-
 }
 
 async function logout (){
-
-
   await onboard.walletReset()
-
-
-
-  fetch("/api/walletready",{
-    method:"post",
-    headers:{
-    "Content-Type": "application/json"
-    },
-    body: JSON.stringify({})
-  })
-
-
 }
 
 
@@ -93,70 +93,56 @@ async function logout (){
 
 
 const Navbar = (walletready) => {
+  
   const [fixed, setFixed] = useState(false);
 
 
-
-
-
-
-
-  return (<Visibility
+  return (
+  <Visibility
     once={false}
     onBottomPassed={() => setFixed(true)}
     onBottomPassedReverse={() =>setFixed(false)}
   >
     <Segment
-    
     textAlign='center'
     style={{minHeight:50,padding:'1em 2em'}}
     >
       <Menu
         fixed={fixed ? "top" : null}
         borderless
-       
-  
       >
         <Container>
-          
-            <Link href="/">
+          <Link href="/">
             <Menu.Item>Lucien Smith Studio </Menu.Item>
-            </Link>
-         
-       
-    
-
-          <Menu.Item position='right'>
-           
-            
-
-
-
-            <Button onClick={login} position="right">
-        
-
+          </Link>
+          <Menu.Item position='right'  onClick={login} >
              CONNECT WALLET
-              </Button>
-          
-        
-
-</Menu.Item>
-            
-            
-            
-            
-
-
-
-
-
-           
-        
-
+          </Menu.Item>
         </Container>
       </Menu>
     </Segment>
   </Visibility>
+  )
+}
+
+
+const Footer = () =>{
+  return(
+
+    <>
+
+    <footer>
+
+        <Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link><br></br>
+        <Link href="https://twitter.com/feareatsthesoil">Twitter</Link><br></br>
+        <Link href="https://luciensmithstudio.substack.com/">Substack</Link><br></br><br></br>
+
+
+        ©2022 Lucien Smith Studio. All rights reserved. <Link href="/privacy-policy">Privacy Policy</Link><br></br>
+    </footer>
+    
+    
+    </>
   )
 }
 
@@ -165,6 +151,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Navbar/>
       <Component {...pageProps} />
+      <Footer/>
     </>
   )
 }
