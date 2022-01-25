@@ -5,11 +5,48 @@ import {Segment, Button,Header,Label,Sticky,Grid,Container, Card} from 'semantic
 import {client} from '../utils/shopify'
 import styles from '../styles/Home.module.css'
 import Router from 'next/router'
+import { useState,useEffect } from 'react'
 
-const {Row, Column} = Grid;
 
 export default function Home({product},checkoutID,walletready) {
 
+  const [checkout, setCheckout] = useState(null);
+  const [checkoutURL, setCheckoutURL] = useState(null);
+
+  useEffect(() => {
+
+    const getShopifyCheckoutURL = async () => {
+      const checkoutId = checkoutID;
+      const lineItemsToAdd = [
+        {
+          variantId: product.variants[0].id,
+          quantity:"1"
+        }
+      ];
+
+      const savedCheckout = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+
+      setCheckout(savedCheckout);
+      setCheckoutURL(savedCheckout.weburl);
+    }; 
+
+    if (checkout === null ) {
+
+        const checkout = await client.checkout.create();
+        checkoutId = checkout.id;
+        
+        fetch("/api/login", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ token: checkoutId })
+        })
+        getShopifyCheckoutURL(checkoutId);
+
+    }
+
+  }, [checkout]);
 
   return (
     <Grid container centered >
@@ -24,10 +61,19 @@ export default function Home({product},checkoutID,walletready) {
           <Header as="h3">{product.title}</Header>
           <p>{product.description}</p>
 
+          {checkout ? 'checkout' : 'none'}
+
           
-          {walletready !=="null" &&
-          <Button onClick={() => applyDiscount()} >Apply Discount</Button>
-          }
+          {walletready !== null && (
+            <button
+            onClick={async () => {
+            await client.checkout.addDiscount(checkoutID, "SEEDHOLDER");
+            setPrice(cart.subtotalPrice);
+            }}
+            >
+            Discount
+          </button>
+          )}
 
         </Column>
       </Row>
