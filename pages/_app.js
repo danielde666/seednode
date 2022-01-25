@@ -34,7 +34,8 @@ const onboard = Onboard({
   subscriptions:{
     wallet: wallet => {
       web3 = new Web3(wallet.provider);
-      console.log(`${wallet.name} is now connected`)
+      console.log(`${wallet.name} is now connected`);
+      const walletname = ${wallet.name};
     }
   }
 });
@@ -71,7 +72,7 @@ async function login (props){
         },
         body: JSON.stringify({
           "message": "hi",
-          "signature":${wallet.name},
+          "signature":{walletname},
           "contractAddress": "0x36c5d285ca9bb42f367468ed0f44448dc5dcfedb"
         }).then(response => response.json())
         .then(data => console.log(data));
