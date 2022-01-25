@@ -8,82 +8,119 @@ import Router from 'next/router'
 import { useState,useEffect } from 'react'
 
 
-export default function Home({product},checkoutID,walletready) {
-
-  const {Row, Column} = Grid;
-  const [checkout, setCheckout] = useState(null);
-  const [checkoutURL, setCheckoutURL] = useState(null);
-
-  useEffect(() => {
-
-    const getShopifyCheckoutURL = async () => {
-      const checkoutId = checkoutID;
-      const lineItemsToAdd = [
-        {
-          variantId: product.variants[0].id,
-          quantity:"1"
-        }
-      ];
-
-      const savedCheckout = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-
-      setCheckout(savedCheckout);
-      setCheckoutURL(savedCheckout.weburl);
-    }; 
+export default function Home({product},walletready) {
+  const [image , setImage] = useState(product.images[0]);
+  const quantity = 1;
+  const [price, setPrice] = useState(product.variants[0].price);
+  
+  
 
 
-    const createCheckout= async () => {
-      const checkout =  await client.checkout.create();
+
+
+  const applyDiscount = async()=>{
+
+    const storage = window.localStorage;
+    let checkoutId = storage.getItem('checkoutId');
+    
+    console.log(checkoutId);
+  
+
+    if(!checkoutId){
+      const checkout = await client.checkout.create();
       checkoutId = checkout.id;
-      
-      fetch("/api/login", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ token: checkoutId })
-      })
-      getShopifyCheckoutURL(checkoutId);
-
+      storage.setItem('checkoutId', checkoutId);
     }
+  
+    const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
+    storage.setItem('cart', JSON.stringify(cart));
+    console.log(cart)
+    setPrice(cart.subtotalPrice);
+  }
 
-    if (checkout === null ) {
+  const addToCart =async () =>{
 
-        createCheckout();
-
+    
+    const storage = window.localStorage;
+    let checkoutId = storage.getItem('checkoutId');
+    //console.log(checkoutId);
+    if(!checkoutId){
+      const checkout = await client.checkout.create();
+      checkoutId = checkout.id;
+      storage.setItem('checkoutId', checkoutId);
     }
+    
+    const lineItemsToAdd = [
+      {
+        variantId: product.variants[0].id,
+        quantity
+      }
+    ];
 
-  }, [checkout]);
+    const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+    storage.setItem('cart', JSON.stringify(cart));
+    console.log(cart)
+    
+    setPrice(cart.subtotalPrice);
+
+
+    
+  }
 
   return (
-    <Grid container centered >
+     <Grid container centered >
       <Row>
         <Column width={10}>
           <Row>
-            <Image src={product.images[0]}  width={500} height={500}/>
+          <br>
+          </br>
+            <Image src={image.src}  width={500} height={500}/>
           </Row>
+      
         </Column>
 
         <Column style={{marginTop:50}} width={6}>
-          <Header as="h3">{product.title}</Header>
-          <p>{product.description}</p>
 
-          {checkout ? 'checkout' : 'none'}
+        <Header as="h3">{product.title}</Header>
+        <p>{product.description}</p>
 
-          
+        <br></br>
 
-          
-          {walletready !== null && (
-            <button
-            onClick={async () => {
-            await client.checkout.addDiscount(checkoutID, "SEEDHOLDER");
-            setPrice(cart.subtotalPrice);
-            }}
-            >
-            Discount
-          </button>
-          )}
+        <span> {price} </span>
 
+
+        <br></br>
+        <br></br>
+
+
+
+
+      {walletready !=="null" &&
+     
+         <Button onClick={() => applyDiscount()} >Apply Discount</Button>
+      }
+
+
+       <Button onClick={() =>{
+
+
+        const storage = window.localStorage;
+        const cart = JSON.parse(storage.getItem("cart"));
+        if (cart !== ""){
+          Router.replace(cart.webUrl);
+        }
+      }}>CHECKOUT</Button>
+  
+
+
+        <Button onClick={addToCart()}>Add To Cart</Button>
+
+   
+
+
+        <br>
+        
+        </br>
 
 
         </Column>
@@ -100,16 +137,12 @@ export async function getServerSideProps(context) {
 
   const {req}=context
   const product = await client.product.fetchByHandle("carrot-seed-packet")
-  const checkout = req.cookies.checkoutID
   const walletready = req.cookies.walletready
   
-  console.log(product)
-  console.log(checkout)
 
   return {
     props: { 
       product: JSON.parse(JSON.stringify(product)),
-      checkoutID:checkout || "null",
       walletready:walletready || "null",
 
     }, // will be passed to the page component as props
