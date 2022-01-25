@@ -16,8 +16,9 @@ const Post = ({product}) => {
 
   const [price, setPrice] = useState(product.variants[0].price);
 
+  const walletready = cookieCutter.get('walletready'); 
 
-
+  
 
 
 
@@ -44,7 +45,12 @@ const Post = ({product}) => {
           SUBTOTAL: {price}
           </span>
       </>
-    
+      {walletready  &&
+        <Button onClick={() => applyDiscount()} >Apply Discount</Button>
+      }
+ 
+
+        
         <Button onClick={() => addtoCart()} >Add to Cart</Button>
 
         </Column>
