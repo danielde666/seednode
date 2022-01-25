@@ -227,29 +227,14 @@ const addToCart =async (checkoutID) =>{
 export async function getServerSideProps(context) {
 
   const {req, query}=context
-
-  const productHandle = query.productHandle
-  const product = await client.product.fetchByHandle(productHandle)
-
-  const checkout = req.cookies.checkoutID
-  
-  const cart = req.cookies.cart
-
-
+  const product = await client.product.fetchByHandle("carrot-seed-packet")
   const walletready = req.cookies.walletready
   
-  
-
-
-  console.log(product)
-  console.log(checkout)
 
 
   return {
     props: { 
       product: JSON.parse(JSON.stringify(product)),
-      checkoutID:checkout || "null",
-      
       walletready:walletready || "null",
 
     }, // will be passed to the page component as props
