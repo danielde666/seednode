@@ -34,8 +34,7 @@ const onboard = Onboard({
   subscriptions:{
     wallet: wallet => {
       web3 = new Web3(wallet.provider);
-      console.log(`${wallet.name} is now connected`);
-      const walletname =wallet.name;
+      console.log(`${wallet.name} is now connected`)
     }
   }
 });
@@ -46,16 +45,11 @@ async function login (props){
 
   await onboard.walletSelect();
   const readyToTransact = await onboard.walletCheck();
-  fetch("/api/walletready",{
-    method:"post",
-    headers:{
-    "Content-Type": "application/json"
-    },
-    body: JSON.stringify({token:readyToTransact})
-  })
+  cookieCutter.set('walletready', readyToTransact);
 
 
   if (readyToTransact){
+
 
 
     //seed api here 
@@ -77,10 +71,13 @@ async function login (props){
       //   }).then(response => response.json()).then(data => console.log(data));
       // })
 
-
-
-
+    
     Router.push(window.location.pathname)
+
+
+
+
+
   }
 }
 
