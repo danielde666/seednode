@@ -10,17 +10,6 @@ import Router from 'next/router';
 
 
 const {Row, Column} = Grid;
-const checkoutId = cookieCutter.get('checkoutID'); 
-const walletready = cookieCutter.get('walletready'); 
-
-
-
-
-
-
-
-
-
 
 
 const Post = ({product}) => {
@@ -28,6 +17,8 @@ const Post = ({product}) => {
   const [price, setPrice] = useState(product.variants[0].price);
   const [cartUrl, setUrl] = useState(window.location.pathname);
 
+  const checkoutId = cookieCutter.get('checkoutId'); 
+  const walletready = cookieCutter.get('walletready'); 
 
 
 
@@ -37,7 +28,7 @@ const Post = ({product}) => {
       const checkoutId = cart.id;
       cookieCutter.set('checkoutId', checkoutId);
     }
-    if (checkoutID){
+    if (checkoutI){
       const lineItemsToAdd = [
         {
           variantId: product.variants[0].id,
@@ -61,10 +52,10 @@ const Post = ({product}) => {
       const checkoutId = cart.id;
       cookieCutter.set('checkoutId', checkoutId);
     }
-    if (checkoutID){
+    if (checkoutId){
       const discountedcart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
-      const discountedcarttotal = cart.subtotalPrice;
-      const discountedcarturl = cart.checkoutUrl;
+      const discountedcarttotal = discountedcart.subtotalPrice;
+      const discountedcarturl = discountedcart.checkoutUrl;
       cookieCutter.set('discountedcarttotal', discountedcarttotal);
       cookieCutter.set('discountedcarturl', discountedcarturl);
       setPrice(carttotal);
