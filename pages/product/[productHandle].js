@@ -41,10 +41,7 @@ const Post = ({product}) => {
           SUBTOTAL: {price}
           </span>
       </>
-      {walletready != null &&
-        <Button onClick={() => applyDiscount()} >Apply Discount</Button>
-      }
-    
+
 
         
         <Button onClick={() => addtoCart()} >Add to Cart</Button>
