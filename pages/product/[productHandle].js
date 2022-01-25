@@ -12,52 +12,7 @@ import Router from 'next/router';
 const {Row, Column} = Grid;
 const checkoutId = cookieCutter.get('checkoutID'); 
 const walletready = cookieCutter.get('walletready'); 
-const [price, setPrice] = useState(product.variants[0].price);
-const [cartUrl, setUrl] = useState(window.location.pathname);
 
-
-
-async function addtoCart (checkoutId){
-  if(!checkoutId){
-    const cart = await client.checkout.create();
-    const checkoutId = cart.id;
-    cookieCutter.set('checkoutId', checkoutId);
-  }
-  if (checkoutID){
-    const lineItemsToAdd = [
-      {
-        variantId: product.variants[0].id,
-        quantity: 1
-      }
-    ];
-    const updatedcart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-    const carttotal = updatedcart.subtotalPrice;
-    const cartUrl = updatedcart.checkoutUrl;
-    cookieCutter.set('carttotal', carttotal);
-    cookieCutter.set('cartUrl', cartUrl);
-    setPrice(carttotal);
-    setUrl(cartUrl);
-    Router.push(window.location.pathname)
-  }
-}
-
-async function applyDiscount (checkoutId){
-  if(!checkoutId){
-    const cart = await client.checkout.create();
-    const checkoutId = cart.id;
-    cookieCutter.set('checkoutId', checkoutId);
-  }
-  if (checkoutID){
-    const discountedcart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
-    const discountedcarttotal = cart.subtotalPrice;
-    const discountedcarturl = cart.checkoutUrl;
-    cookieCutter.set('discountedcarttotal', discountedcarttotal);
-    cookieCutter.set('discountedcarturl', discountedcarturl);
-    setPrice(carttotal);
-    setUrl(discountedcarturl);
-    Router.push(window.location.pathname)
-  }
-}
 
 
 
@@ -69,6 +24,62 @@ async function applyDiscount (checkoutId){
 
 
 const Post = ({product}) => {
+
+  const [price, setPrice] = useState(product.variants[0].price);
+  const [cartUrl, setUrl] = useState(window.location.pathname);
+
+
+
+
+  async function addtoCart (checkoutId){
+    if(!checkoutId){
+      const cart = await client.checkout.create();
+      const checkoutId = cart.id;
+      cookieCutter.set('checkoutId', checkoutId);
+    }
+    if (checkoutID){
+      const lineItemsToAdd = [
+        {
+          variantId: product.variants[0].id,
+          quantity: 1
+        }
+      ];
+      const updatedcart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+      const carttotal = updatedcart.subtotalPrice;
+      const cartUrl = updatedcart.checkoutUrl;
+      cookieCutter.set('carttotal', carttotal);
+      cookieCutter.set('cartUrl', cartUrl);
+      setPrice(carttotal);
+      setUrl(cartUrl);
+      Router.push(window.location.pathname)
+    }
+  }
+  
+  async function applyDiscount (checkoutId){
+    if(!checkoutId){
+      const cart = await client.checkout.create();
+      const checkoutId = cart.id;
+      cookieCutter.set('checkoutId', checkoutId);
+    }
+    if (checkoutID){
+      const discountedcart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
+      const discountedcarttotal = cart.subtotalPrice;
+      const discountedcarturl = cart.checkoutUrl;
+      cookieCutter.set('discountedcarttotal', discountedcarttotal);
+      cookieCutter.set('discountedcarturl', discountedcarturl);
+      setPrice(carttotal);
+      setUrl(discountedcarturl);
+      Router.push(window.location.pathname)
+    }
+  }
+  
+  
+
+
+
+
+
+
 
   return (
     <Grid container centered >
