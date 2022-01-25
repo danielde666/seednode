@@ -10,7 +10,7 @@ import Router from 'next/router';
 
 
 const {Row, Column} = Grid;
-const Post = ({product,checkoutID,walletready}) => {
+const Post = ({product}) => {
 const walletready = cookieCutter.get('walletready'); 
 const checkoutId = cookieCutter.get('checkoutID');  
 const  carttotal= cookieCutter.get('carttotal');  
@@ -34,6 +34,7 @@ const applyDiscount = async()=>{
   cookieCutter.set('carttotal', carttotal);
   cookieCutter.set('cartUrl', cartUrl);
   setPrice(carttotal);
+  
   Router.reload(window.location.pathname);
 
 }
@@ -60,8 +61,8 @@ const addToCart =async () =>{
   const cartUrl = cart.checkoutUrl;
   cookieCutter.set('carttotal', carttotal);
   cookieCutter.set('cartUrl', cartUrl);
-  Router.reload(window.location.pathname);
 
+  Router.reload(window.location.pathname);
 }
 
 
@@ -117,5 +118,31 @@ const addToCart =async () =>{
 
   )
 }
+
+export async function getServerSideProps(context) {
+
+  const {req, query}=context
+
+  const productHandle = query.productHandle
+  const product = await client.product.fetchByHandle(productHandle)
+
+  
+
+  return {
+    props: { 
+      product: JSON.parse(JSON.stringify(product)),
+    
+    }, // will be passed to the page component as props
+    
+
+  }
+
+
+}
+
+
+
+
+
 
 export default Post
