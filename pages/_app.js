@@ -35,17 +35,27 @@ const onboard = Onboard({
     wallet: wallet => {
       web3 = new Web3(wallet.provider);
       console.log(`${wallet.name} is now connected`)
-
-      
     }
   }
 });
 
 async function login (props){
+
+
+
   await onboard.walletSelect();
   const readyToTransact = await onboard.walletCheck();
   cookieCutter.set('walletready', readyToTransact);
+
+
   if (readyToTransact){
+
+
+    //seed api here 
+    // set seed verification in cookie 
+    // index will check for seed cookie instead of wallet 
+
+
     Router.push(window.location.pathname)
   }
 }
