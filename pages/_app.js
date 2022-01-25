@@ -65,18 +65,17 @@ async function login (props){
 
 
 
-      fetch("https://ae-backend.staging.lobus.io/validate-nft-ownership",{
-        method:"post",
-        headers:{
-        "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          "message": "hi",
-          "signature":{walletname},
-          "contractAddress": "0x36c5d285ca9bb42f367468ed0f44448dc5dcfedb"
-        }).then(response => response.json())
-        .then(data => console.log(data));
-      })
+      // fetch("https://ae-backend.staging.lobus.io/validate-nft-ownership",{
+      //   method:"post",
+      //   headers:{
+      //   "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify({
+      //     "message": "hi",
+      //     "signature":{walletname},
+      //     "contractAddress": "0x36c5d285ca9bb42f367468ed0f44448dc5dcfedb"
+      //   }).then(response => response.json()).then(data => console.log(data));
+      // })
 
 
 
