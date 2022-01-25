@@ -10,6 +10,7 @@ import { useState,useEffect } from 'react'
 
 export default function Home({product},checkoutID,walletready) {
 
+  const {Row, Column} = Grid;
   const [checkout, setCheckout] = useState(null);
   const [checkoutURL, setCheckoutURL] = useState(null);
 
