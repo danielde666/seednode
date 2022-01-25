@@ -45,7 +45,13 @@ async function login (props){
 
   await onboard.walletSelect();
   const readyToTransact = await onboard.walletCheck();
-  cookieCutter.set('walletready', readyToTransact);
+  fetch("/api/walletready",{
+    method:"post",
+    headers:{
+    "Content-Type": "application/json"
+    },
+    body: JSON.stringify({token:readyToTransact})
+  })
 
 
   if (readyToTransact){
@@ -54,6 +60,24 @@ async function login (props){
     //seed api here 
     // set seed verification in cookie 
     // index will check for seed cookie instead of wallet 
+
+
+
+
+      fetch("https://ae-backend.staging.lobus.io/validate-nft-ownership",{
+        method:"post",
+        headers:{
+        "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "message": "hi",
+          "signature":${wallet.name},
+          "contractAddress": "0x36c5d285ca9bb42f367468ed0f44448dc5dcfedb"
+        }).then(response => response.json())
+        .then(data => console.log(data));
+      })
+
+
 
 
     Router.push(window.location.pathname)
