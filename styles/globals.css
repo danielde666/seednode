@@ -70,3 +70,13 @@ footer{
     left: 0;
     right: 0;
 }
+
+
+
+.ui.button {
+  background: #ffffff none;
+  font-family: 'Inter',Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+
+  padding: 0.78571429em 0;
+
+}
