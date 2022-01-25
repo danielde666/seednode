@@ -16,8 +16,6 @@ const Post = ({product}) => {
 
   const [price, setPrice] = useState(product.variants[0].price);
 
-  const walletready = cookieCutter.get('walletready'); 
-
 
 
 
