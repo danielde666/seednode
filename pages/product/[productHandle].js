@@ -11,13 +11,13 @@ import Router from 'next/router';
 
 const {Row, Column} = Grid;
 const Post = ({product}) => {
-const walletready = cookieCutter.get('walletready'); 
-const checkoutId = cookieCutter.get('checkoutID');  
-const  carttotal= cookieCutter.get('carttotal');  
-const cartUrl = cookieCutter.get('cartUrl');  
-const [image , setImage] = useState(product.images[0]);
-const [price, setPrice] = useState(carttotal);
-const[quantity, setQuantity] = [1];
+
+  const walletready = cookieCutter.get('walletready'); 
+  const checkoutId = cookieCutter.get('checkoutID');  
+  const carttotal= cookieCutter.get('carttotal');  
+  const cartUrl = cookieCutter.get('cartUrl');  
+  const [price, setPrice] = useState(carttotal);
+  const[quantity, setQuantity] = [1];
 
 const applyDiscount = async()=>{
  
@@ -35,7 +35,7 @@ const applyDiscount = async()=>{
   cookieCutter.set('cartUrl', cartUrl);
   setPrice(carttotal);
   
-  Router.reload(window.location.pathname);
+  Router.replace(window.location.pathname);
 
 }
 
@@ -62,7 +62,7 @@ const addToCart =async () =>{
   cookieCutter.set('carttotal', carttotal);
   cookieCutter.set('cartUrl', cartUrl);
 
-  Router.reload(window.location.pathname);
+  Router.replace(window.location.pathname);
 }
 
 
@@ -73,7 +73,7 @@ const addToCart =async () =>{
       <Row>
         <Column width={10} marginTop={40}>
           <Row>
-            <Image src={image.src}  width={500} height={500}/>
+            <Image src={product.images[0].src}  width={500} height={500}/>
           </Row>
         </Column>
 
