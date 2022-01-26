@@ -28,7 +28,7 @@ function DiscountExample({ signer }) {
 	);
 }
 
-const Index = ({ product }) => {
+const Index = ({ product, discountedproduct }) => {
 	const { signer, account } = useWeb3();
 	const [price, setPrice] = useState(0);
 
@@ -128,12 +128,14 @@ const Index = ({ product }) => {
 
 export async function getServerSideProps(context) {
 	const { req } = context;
-	const product = await client.product.fetchByHandle("carrot-seed-packet");
+	const product = await client.product.fetch("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzcwNzgzNzkxNTk3MjA=");
+	const discountedproduct = await client.product.fetch("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzczMjkwMDk1MDAzMjg=");
 	const walletready = req.cookies.walletready;
 
 	return {
 		props: {
 			product: JSON.parse(JSON.stringify(product)),
+			discountedproduct: JSON.parse(JSON.stringify(discountedproduct)),
 			walletready: walletready || "null",
 		}, // will be passed to the page component as props
 	};
