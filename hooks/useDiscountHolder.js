@@ -1,7 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 
-const contractAddress = "0x36c5d285ca9bb42f367468ed0f44448dc5dcfeda";
+
+//prod contract 
+//const contractAddress = "0xbcdf4823fc65e6aa243963f955fd5ce885066306";
+
+//test contract
+const contractAddress = "0xfee1Cd96E657D7bB203EE72e54eA4AAb28bA6fC7";
+ 
 const verificationUrl = "https://ae-backend.staging.lobus.io/validate-nft-ownership";
 const message = "Requesting ownership verification...";
 
