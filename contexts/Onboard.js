@@ -5,11 +5,11 @@ import Onboard from "bnc-onboard";
 import useDeviceInfo from "../hooks/useDeviceInfo";
 
 const networkId = 4;
-const rpcUrl = "";
+const rpcUrl = "https://eth-mainnet.alchemyapi.io/v2/cqc9cLYyw8V78EHTQsM6IM2yLy_8iJmJ";
 const dappId = "73bcf726-b226-4f5b-95a0-0081eb9d252d";
 const appUrl = "";
 const email = "";
-const appName = "";
+const appName = "Seed Discount";
 
 function initOnboard(subscriptions, { isMobile = false } = {}) {
 	return Onboard({
