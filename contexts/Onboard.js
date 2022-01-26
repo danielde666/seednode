@@ -4,8 +4,8 @@ import Onboard from "bnc-onboard";
 
 import useDeviceInfo from "../hooks/useDeviceInfo";
 
-const networkId = 3;
-const rpcUrl = "https://eth-ropsten.alchemyapi.io/v2/cqc9cLYyw8V78EHTQsM6IM2yLy_8iJmJ";
+const networkId = 1;
+const rpcUrl = "https://eth-mainnet.alchemyapi.io/v2/cqc9cLYyw8V78EHTQsM6IM2yLy_8iJmJ";
 const dappId = "73bcf726-b226-4f5b-95a0-0081eb9d252d";
 const appUrl = "";
 const email = "";

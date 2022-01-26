@@ -3,12 +3,12 @@ import axios from "axios";
 
 
 //prod contract 
-//const contractAddress = "0xbcdf4823fc65e6aa243963f955fd5ce885066306";
+const contractAddress = "0xbcdf4823fc65e6aa243963f955fd5ce885066306";
 
 //test contract
-const contractAddress = "0xfee1Cd96E657D7bB203EE72e54eA4AAb28bA6fC7";
+//const contractAddress = "0xfee1Cd96E657D7bB203EE72e54eA4AAb28bA6fC7";
  
-const verificationUrl = "https://ae-backend.staging.lobus.io/validate-nft-ownership";
+const verificationUrl = "https://ae-backend.lobus.io/validate-nft-ownership";
 const message = "Requesting ownership verification...";
 
 export default function useDiscountHolder({ signer }) {
