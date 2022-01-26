@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const contractAddress = "0x36c5d285ca9bb42f367468ed0f44448dc5dcfeda";
 const verificationUrl = "https://ae-backend.staging.lobus.io/validate-nft-ownership";
-const message = "Doesn't matter right now";
+const message = "Requesting ownership verification...";
 
 export default function useDiscountHolder({ signer }) {
 	const [discountHolder, setDiscountHolder] = useState(null);

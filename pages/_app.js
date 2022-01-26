@@ -25,12 +25,13 @@ const Navbar = () => {
 							<Menu.Item>Lucien Smith Studio</Menu.Item>
 						</Link>
 
-						<Menu.Item position="right" onClick={connect}>
-							CONNECT WALLET
-						</Menu.Item>
-
-						<Menu.Item position="right" onClick={disconnect}>
-							Disconnect
+						<Menu.Item
+							position="right"
+							onClick={() => {
+								connected ? disconnect() : connect();
+							}}
+						>
+							{connected ? "CONNECTED" : "CONNECT WALLET"}
 						</Menu.Item>
 					</Container>
 				</Menu>

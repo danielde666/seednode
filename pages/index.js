@@ -6,6 +6,7 @@ import Router from "next/router";
 import { client } from "../utils/shopify";
 import useWeb3 from "../hooks/useWeb3";
 import useDiscountHolder from "../hooks/useDiscountHolder";
+import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 const { Row, Column } = Grid;
 
@@ -30,6 +31,8 @@ function DiscountExample({ signer }) {
 const Index = ({ product }) => {
 	const { signer, account } = useWeb3();
 	const [price, setPrice] = useState(0);
+
+	useWalletCheckTrigger();
 
 	const [image] = product.images;
 	const quantity = 1;
@@ -101,7 +104,9 @@ const Index = ({ product }) => {
 						<br></br>
 					</span>
 
-					<div>{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}</div>
+					<div style={{ padding: "2rem", border: "1px solid black" }}>
+						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
+					</div>
 
 					<Button onClick={() => addToCart()}>Add To Cart</Button>
 					<Button
