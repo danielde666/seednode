@@ -10,7 +10,7 @@ import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 const { Row, Column } = Grid;
 
-function DiscountExample({ signer,product,discountedproduct }) {
+function DiscountExample({ signer},{product},{discountedproduct }) {
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
 	const addRegularRemoveDiscount = async () => {
