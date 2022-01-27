@@ -239,7 +239,7 @@ const Index = ({ product }) => {
 							const newcheckout = await client.checkout.fetch(newcheckoutId);
 							const newcheckouturl = newcheckout.webUrl;
 							storage.setItem("cart", JSON.stringify(newcheckout));
-							console.log(newcheckouturl);
+							Router.replace(newcheckouturl);
 							
 						}}
 					>
