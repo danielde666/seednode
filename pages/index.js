@@ -150,7 +150,7 @@ const Index = ({ product }) => {
 					<div style={{ padding: "2rem", border: "1px solid black" }}>
 						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
 					</div>
-					{!connected ? 
+					{connected ? "":
 					<Button
 						onClick={async () => {
 							
