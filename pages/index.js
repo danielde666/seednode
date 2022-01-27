@@ -221,7 +221,7 @@ const Index = ({ product }) => {
 					</Button>
 					: 
 					<Button
-						onClick={() => {
+						onClick={async () => {
 							const storage = window.localStorage;
 							const cart = JSON.parse(storage.getItem("cart"));
 							if (cart !== "") {
