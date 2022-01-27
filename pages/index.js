@@ -13,6 +13,7 @@ const { Row, Column } = Grid;
 function DiscountExample({ signer }) {
 	
 	const [itemPrice, setItemPrice] = useState("2500.00");
+	const [webUrl, setWebUrl] = useState(null);
 	const quantity = 1;
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
@@ -34,6 +35,7 @@ function DiscountExample({ signer }) {
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 		storage.setItem("cart", JSON.stringify(cart));
 		setItemPrice(cart.subtotalPrice);
+		setWebUrl(cart.webUrl);
 	};
 
 	const removeRegularAddDiscount = async () => {
@@ -54,6 +56,7 @@ function DiscountExample({ signer }) {
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 		storage.setItem("cart", JSON.stringify(cart));
 		setItemPrice(cart.subtotalPrice);
+		setWebUrl(cart.webUrl);
 	};
 
 	useEffect(() => {
@@ -72,6 +75,9 @@ function DiscountExample({ signer }) {
 
 
 
+
+
+
 	return (
 		<>
 			<p>PRICE: ${itemPrice}</p>
@@ -84,6 +90,22 @@ function DiscountExample({ signer }) {
 					<b>Amount Owned:</b> {ownedCount === null ? "unknown" : ownedCount}
 				</li>
 			</ul>
+
+
+			<Button
+				onClick={() => {
+					const storage = window.localStorage;
+					const cart = JSON.parse(storage.getItem("cart"));
+					if (cart !== "") {
+						Router.replace({webUrl});
+					}
+				}}
+			>
+			PURCHASE
+			</Button>
+
+
+			
 		</>
 	);
 }
@@ -130,19 +152,7 @@ const Index = ({ product }) => {
 					<div style={{ padding: "2rem", border: "1px solid black" }}>
 						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
 					</div>
-					{connected ? 
-					<Button
-						onClick={() => {
-							const storage = window.localStorage;
-							const cart = JSON.parse(storage.getItem("cart"));
-							if (cart !== "") {
-								Router.replace(cart.webUrl);
-							}
-						}}
-					>
-					PURCHASE
-					</Button>
-					: 
+					{!connected ? 
 					<Button
 						onClick={async () => {
 							
