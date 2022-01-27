@@ -250,28 +250,19 @@ const Index = ({ product }) => {
 					:
 					<Button
 						onClick={ async () => {
-							const storage = window.localStorage;
 							const checkout = await client.checkout.create();
 							const checkoutId = checkout.id;
-							storage.setItem("checkoutId", checkoutId);
 							const lineItemsToAdd = [
-							{
-							variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
-							//regular variant id 
-							quantity:1,
-							//customAttributes: [{key: "MyKey", value: "MyValue"}]
-							},
+								{
+								variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
+								//regular variant id 
+								quantity:1,
+								//customAttributes: [{key: "MyKey", value: "MyValue"}]
+								},
 							];
-
-							const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-							
+							await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 							const exisitingcheckout = await client.checkout.fetch(checkoutId);
-							storage.setItem("cart", JSON.stringify(exisitingcheckout));
 							Router.replace(exisitingcheckout.webUrl);
-
-
-
-
 						}}
 					>
 					PURCHASE
