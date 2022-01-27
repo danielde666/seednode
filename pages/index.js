@@ -22,10 +22,8 @@ function DiscountExample({ signer,product,discountedproduct }) {
 			},
 		];
 		const lineItemsToRemove = [
-			{
-				variantId: discountedproduct.variants[0].id,
-				quanitty,
-			}
+			
+			discountedproduct.id
 		];
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 		const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
@@ -51,10 +49,9 @@ function DiscountExample({ signer,product,discountedproduct }) {
 			},
 		];
 		const lineItemsToRemove = [
-			{
-				variantId: product.variants[0].id,
-				quanitty,
-			}
+			
+			product.id
+			
 		];
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 		const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
