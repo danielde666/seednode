@@ -212,7 +212,7 @@ const Index = ({ product }) => {
 
 
 	return (
-		<Grid container centered verticalAlign='middle'>
+		<Grid container centered verticalAlign='middle' stackable>
 			<Row className="rowholder">
 				<Column width={10} className="imageholder">
 					<Row>
