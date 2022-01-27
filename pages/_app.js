@@ -43,7 +43,7 @@ const Navbar = () => {
 const Footer = () => {
 	return (
 		<>
-			<footer>
+			<footer className="ui container">
 				<Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link>
 				<br></br>
 				<Link href="https://twitter.com/feareatsthesoil">Twitter</Link>
