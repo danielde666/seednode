@@ -235,11 +235,11 @@ const Index = ({ product }) => {
 								//customAttributes: [{key: "MyKey", value: "MyValue"}]
 								},
 							];
-							await client.checkout.addLineItems(newcheckoutId, lineItemsToAdd);
+							const newcart = await client.checkout.addLineItems(newcheckoutId, lineItemsToAdd);
 							const newcheckout = await client.checkout.fetch(newcheckoutId);
 							const newcheckouturl = newcheckout.weburl;
 							storage.setItem("cart", JSON.stringify(newcheckout));
-							Router.replace(newcheckouturl)
+							console.log(newcheckouturl);
 							
 						}}
 					>
