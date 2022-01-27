@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import Image from "next/image";
 import { Button, Header, Grid } from "semantic-ui-react";
 import Router from "next/router";
@@ -13,7 +13,7 @@ const { Row, Column } = Grid;
 function DiscountExample({ signer }) {
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
-	
+
 	useEffect(() => {
 	if(discountHolder !== null) {
 		if(discountHolder) {
