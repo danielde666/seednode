@@ -53,6 +53,75 @@ const Index = ({ product, discountedproduct }) => {
 		setPrice(cart.subtotalPrice);
 	};
 
+
+		useEffect(() => {
+		if(discountHolder !== null) {
+			if(discountHolder) {
+			//setLineItem(discounted)
+			console.log("discounted");
+			removeRegularAddDiscount();
+			} else {
+			//setLineItem(regular)
+			console.log("regular")
+			addRegularRemoveDiscount();
+			}
+		}
+		}, [discountHolder])
+
+
+		const addRegularRemoveDiscount = async () => {
+			const lineItemsToAdd = [
+				{
+					variantId: product.variants[0].id,
+					quantity,
+					//customAttributes: [{key: "MyKey", value: "MyValue"}]
+				},
+			];
+			const lineItemsToRemove = [
+				{
+					variantId: discountedproduct.variants[0].id,
+					quanitty,
+				}
+			];
+			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+			const cart = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+			storage.setItem("cart", JSON.stringify(cart));
+			console.log(cart);
+			setPrice(cart.subtotalPrice);
+		};
+
+		const removeRegularAddDiscount = async () => {
+			const storage = window.localStorage;
+			let checkoutId = storage.getItem("checkoutId");
+	
+			if (!checkoutId) {
+				const checkout = await client.checkout.create();
+				checkoutId = checkout.id;
+				storage.setItem("checkoutId", checkoutId);
+			}
+			const lineItemsToAdd = [
+				{
+					variantId: discountedproduct.variants[0].id,
+					quantity,
+					//customAttributes: [{key: "MyKey", value: "MyValue"}]
+				},
+			];
+			const lineItemsToRemove = [
+				{
+					variantId: product.variants[0].id,
+					quanitty,
+				}
+			];
+			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+			const cart = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+			storage.setItem("cart", JSON.stringify(cart));
+			console.log(cart);
+			setPrice(cart.subtotalPrice);
+		};
+
+
+
+
 	const addToCart = async () => {
 		const storage = window.localStorage;
 		let checkoutId = storage.getItem("checkoutId");
