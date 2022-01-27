@@ -30,11 +30,11 @@ function initOnboard(subscriptions, { isMobile = false } = {}) {
 				{ walletName: "coinbase", preferred: !isMobile },
 				{ walletName: "trezor", appUrl, email, rpcUrl, preferred: !isMobile },
 				{ walletName: "ledger", rpcUrl, preferred: !isMobile },
-				// {
-				// 	walletName: "walletConnect",
-				// 	rpc: { [networkId]: rpcUrl },
-				// 	preferred: true,
-				// },
+				{
+					walletName: "walletConnect",
+					rpc: { [networkId]: rpcUrl },
+					preferred: true,
+				},
 				{ walletName: "trust", rpcUrl },
 				{ walletName: "cobovault", appName, rpcUrl },
 				{ walletName: "keystone", appName, rpcUrl },
