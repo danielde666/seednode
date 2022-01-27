@@ -237,7 +237,7 @@ const Index = ({ product }) => {
 							];
 							const newcart = await client.checkout.addLineItems(newcheckoutId, lineItemsToAdd);
 							const newcheckout = await client.checkout.fetch(newcheckoutId);
-							const newcheckouturl = newcheckout.weburl;
+							const newcheckouturl = newcheckout.webUrl;
 							storage.setItem("cart", JSON.stringify(newcheckout));
 							console.log(newcheckouturl);
 							
