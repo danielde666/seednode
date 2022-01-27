@@ -65,11 +65,14 @@ function DiscountExample({ signer,product,discountedproduct }) {
 		if(discountHolder) {
 		//setLineItem(discounted)
 		console.log("discounted");
-		removeRegularAddDiscount();
+		console.log(discountedproduct.title);
+		//removeRegularAddDiscount();
 		} else {
 		//setLineItem(regular)
-		console.log("regular")
-		addRegularRemoveDiscount();
+		console.log("regular");
+		
+		console.log(discountedproduct.title);
+		//addRegularRemoveDiscount();
 		}
 	}
 	}, [discountHolder])
