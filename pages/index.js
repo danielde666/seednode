@@ -213,15 +213,15 @@ const Index = ({ product }) => {
 
 	return (
 		<Grid container centered>
-			<Row>
-				<Column width={10}>
+			<Row className="rowholder">
+				<Column width={10} className="imageholder">
 					<Row>
 						<br></br>
 						<Image src={image.src} width={500} height={500} />
 					</Row>
 				</Column>
 
-				<Column style={{ marginTop: 50 }} width={6}>
+				<Column style={{ marginTop: 50 }} width={6} className="infoholder">
 					<Header as="h3">{product.title}</Header>
 
 					<>
@@ -234,7 +234,7 @@ const Index = ({ product }) => {
 				
 
 				
-					<div style={{ padding: "2rem", border: "1px solid black" }}>
+					<div style={} className="discountholder">
 						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
 					</div>
 					{connected ? 

@@ -85,3 +85,27 @@ footer{
 
   text-decoration: underline;
 }
+
+
+.discountholder ul{
+  display:none;
+
+}
+.discountholder button{
+  background: #fff;
+    box-shadow: none;
+    font-weight: 100;
+    -webkit-appearance: none;
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-family: 'Inter';
+    padding: 10px 32px;
+    cursor: pointer;
+    width:200px;
+}
+
+.discountholder button:hover{
+  background-color:#eee;
+  border-color:#eee;
+  cursor:pointer;
+}
