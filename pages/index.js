@@ -10,20 +10,22 @@ import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 const { Row, Column } = Grid;
 
-function DiscountExample({ signer},{product},{discountedproduct}) {
+function DiscountExample({ signer }) {
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
+
 
 	const addRegularRemoveDiscount = async () => {
 		const lineItemsToAdd = [
 			{
-				variantId: product.variants[0].id,
-				quantity,
+				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
+				//regularid
+				quantity:"1",
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
 		const lineItemsToRemove = [
 			
-			discountedproduct.id
+			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==" //discount id 
 		];
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 		const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
@@ -43,14 +45,15 @@ function DiscountExample({ signer},{product},{discountedproduct}) {
 		}
 		const lineItemsToAdd = [
 			{
-				variantId: discountedproduct.variants[0].id,
-				quantity,
+				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==",
+				//discountid
+				quantity:"1",
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
 		const lineItemsToRemove = [
 			
-			product.id
+			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==" //regularid
 			
 		];
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
@@ -65,14 +68,11 @@ function DiscountExample({ signer},{product},{discountedproduct}) {
 		if(discountHolder) {
 		//setLineItem(discounted)
 		console.log("discounted");
-		//console.log(discountedproduct.title);
-		//removeRegularAddDiscount();
+		removeRegularAddDiscount();
 		} else {
 		//setLineItem(regular)
-		console.log("regular");
-		
-		//console.log(product.title);
-		//addRegularRemoveDiscount();
+		console.log("regular")
+		addRegularRemoveDiscount();
 		}
 	}
 	}, [discountHolder])
@@ -95,7 +95,7 @@ function DiscountExample({ signer},{product},{discountedproduct}) {
 	);
 }
 
-const Index = ({ product, discountedproduct }) => {
+const Index = ({ product }) => {
 	const { signer, account } = useWeb3();
 	const [price, setPrice] = useState(0);
 
@@ -159,7 +159,7 @@ const Index = ({ product, discountedproduct }) => {
 				</Column>
 
 				<Column style={{ marginTop: 50 }} width={6}>
-					<Header as="h3">{discountedproduct.title}</Header>
+					<Header as="h3">{product.title}</Header>
 
 					<>
 						<p>
@@ -171,7 +171,7 @@ const Index = ({ product, discountedproduct }) => {
 					<br></br>
 
 					<span>
-						Price : {discountedproduct.variants[0].price}
+						Price : {product.variants[0].price}
 						<br></br>
 						Subtotal: {price}
 						<br></br>
