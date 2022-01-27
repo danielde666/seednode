@@ -84,8 +84,8 @@ const Index = ({ product, discountedproduct }) => {
 				}
 			];
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-			const cart = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
-			storage.setItem("cart", JSON.stringify(cart));
+			const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+			storage.setItem("cart", JSON.stringify(cartremoved));
 			console.log(cart);
 			setPrice(cart.subtotalPrice);
 		};
@@ -113,9 +113,9 @@ const Index = ({ product, discountedproduct }) => {
 				}
 			];
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-			const cart = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
-			storage.setItem("cart", JSON.stringify(cart));
-			console.log(cart);
+			const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+			storage.setItem("cart", JSON.stringify(cartremoved));
+			console.log(cartremoved);
 			setPrice(cart.subtotalPrice);
 		};
 
