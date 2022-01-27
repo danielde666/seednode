@@ -22,6 +22,36 @@ function DiscountExample({ signer }) {
 
 		const storage = window.localStorage;
 		let checkoutId = storage.getItem("checkoutId");
+		let currentcart = storage.getItem("cart");
+
+		if (currentcart){
+			const currentlineitemprice = currentcart.lineItems[0].variant.price;
+			setItemPrice(currentlineitemprice);
+
+			const lineItemsToAdd = [
+				{
+					variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
+					//regular variant id 
+					quantity,
+					//customAttributes: [{key: "MyKey", value: "MyValue"}]
+				},
+			];
+		
+			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+			console.log(cart);
+
+			const exisitingcheckout = await client.checkout.fetch(checkoutId);
+
+			if (exisitingcheckout.lineItems){
+				
+				const exisitingcheckoutitem = exisitingcheckout.lineItems[0].id;
+				const lineItemsToRemove = [
+					exisitingcheckoutitem //discount product id 
+				];
+				const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+				storage.setItem("cart", JSON.stringify(cartremoved));
+			}
+		}
 
 		if (!checkoutId) {
 
@@ -40,32 +70,6 @@ function DiscountExample({ signer }) {
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 			storage.setItem("cart", JSON.stringify(cart));
 			setItemPrice(cart.subtotalPrice);
-		}else{
-
-			const lineItemsToAdd = [
-				{
-					variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
-					//regular variant id 
-					quantity,
-					//customAttributes: [{key: "MyKey", value: "MyValue"}]
-				},
-			];
-		
-			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-			console.log(cart);
-			setItemPrice(cart.subtotalPrice);
-
-			const exisitingcheckout = await client.checkout.fetch(checkoutId);
-			if (exisitingcheckout.lineItems){
-				
-				const exisitingcheckoutitem = exisitingcheckout.lineItems[0].id;
-				const lineItemsToRemove = [
-					exisitingcheckoutitem //discount product id 
-				];
-				const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
-				storage.setItem("cart", JSON.stringify(cartremoved));
-				console.log(cartremoved);
-			}
 		}
 
 		
@@ -75,6 +79,36 @@ function DiscountExample({ signer }) {
 	const removeRegularAddDiscount = async () => {
 		const storage = window.localStorage;
 		let checkoutId = storage.getItem("checkoutId");
+		let currentcart = storage.getItem("cart");
+
+		if (currentcart){
+			const currentlineitemprice = currentcart.lineItems[0].variant.price;
+			setItemPrice(currentlineitemprice);
+			
+			const lineItemsToAdd = [
+				{
+					variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==",
+					//discount variant id 
+					quantity,
+					//customAttributes: [{key: "MyKey", value: "MyValue"}]
+				},
+			];
+		
+			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+			console.log(cart);
+
+			const exisitingcheckout = await client.checkout.fetch(checkoutId);
+
+			if (exisitingcheckout.lineItems){
+				
+				const exisitingcheckoutitem = exisitingcheckout.lineItems[0].id;
+				const lineItemsToRemove = [
+					exisitingcheckoutitem //discount product id 
+				];
+				const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+				storage.setItem("cart", JSON.stringify(cartremoved));
+			}
+		}
 
 		if (!checkoutId) {
 			const checkout = await client.checkout.create();
@@ -93,34 +127,6 @@ function DiscountExample({ signer }) {
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 			storage.setItem("cart", JSON.stringify(cart));
 			setItemPrice(cart.subtotalPrice);
-
-		} else {
-
-
-			const lineItemsToAdd = [
-				{
-					variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==",
-					//discount variant id 
-					quantity,
-					//customAttributes: [{key: "MyKey", value: "MyValue"}]
-				},
-			];
-		
-			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-			console.log(cart);
-			setItemPrice(cartremoved.subtotalPrice);
-
-			const exisitingcheckout = await client.checkout.fetch(checkoutId);
-			if (exisitingcheckout.lineItems){
-				
-				const exisitingcheckoutitem = exisitingcheckout.lineItems[0].id;
-				const lineItemsToRemove = [
-					exisitingcheckoutitem //discount product id 
-				];
-				const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
-				storage.setItem("cart", JSON.stringify(cartremoved));
-				console.log(cartremoved);
-			}
 
 		}
 		
@@ -201,7 +207,7 @@ const Index = ({ product }) => {
 					<div style={{ padding: "2rem", border: "1px solid black" }}>
 						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
 					</div>
-
+					{connected ? 
 					<Button
 						onClick={() => {
 							const storage = window.localStorage;
@@ -213,6 +219,37 @@ const Index = ({ product }) => {
 					>
 					PURCHASE
 					</Button>
+					: 
+					<Button
+						onClick={() => {
+							const storage = window.localStorage;
+							const cart = JSON.parse(storage.getItem("cart"));
+							if (cart !== "") {
+								Router.replace(cart.webUrl);
+							}else{
+								const checkout = await client.checkout.create();
+								checkoutId = checkout.id;
+								storage.setItem("checkoutId", checkoutId);
+								const lineItemsToAdd = [
+								{
+								variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
+								//regular variant id 
+								quantity,
+								//customAttributes: [{key: "MyKey", value: "MyValue"}]
+								},
+								];
+
+								const regularcart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+								storage.setItem("cart", JSON.stringify(regularcart));
+								setItemPrice(regularcart.subtotalPrice);
+								Router.replace(regularcart.webUrl)
+							}
+						}}
+					>
+					PURCHASE
+					</Button>
+					}
+
 				</Column>
 			</Row>
 		</Grid>
