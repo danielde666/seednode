@@ -179,7 +179,7 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<p>PRICE: ${itemPrice}</p>
+			<p>PRICE:  {discountHolder === null ? "$2500" : "$1250.00"}</p>
 			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
