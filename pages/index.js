@@ -212,7 +212,7 @@ const Index = ({ product }) => {
 
 
 	return (
-		<Grid container centered>
+		<Grid container centered verticalAlign='middle'>
 			<Row className="rowholder">
 				<Column width={10} className="imageholder">
 					<Row>
@@ -247,7 +247,7 @@ const Index = ({ product }) => {
 							}
 						}}
 					>
-					PURCHASE
+					Purchase
 					</Button>
 					:
 					<Button
@@ -267,7 +267,7 @@ const Index = ({ product }) => {
 							Router.replace(exisitingcheckout.webUrl);
 						}}
 					>
-					PURCHASE
+					Purchase
 					</Button>
 
 

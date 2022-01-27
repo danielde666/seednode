@@ -91,21 +91,23 @@ footer{
   display:none;
 
 }
-.discountholder button{
-  background: #fff;
-    box-shadow: none;
-    font-weight: 100;
-    -webkit-appearance: none;
-    border: 1px solid #000;
-    border-radius: 8px;
-    font-family: 'Inter';
-    padding: 10px 32px;
-    cursor: pointer;
-    width:200px;
+.infoholder button{
+  background: #fff!important;
+  box-shadow: none !important;
+  font-weight: 100 !important;
+  -webkit-appearance: none !important;
+  border: 1px solid #000 !important;
+  border-radius: 8px !important;
+  font-family: Inter !important;
+  padding: 10px 32px !important;
+  cursor: pointer !important;
+  width: 254px !important;
+  text-transform: capitalize !important;
 }
 
-.discountholder button:hover{
-  background-color:#eee;
-  border-color:#eee;
-  cursor:pointer;
+.infoholder button:hover{
+  background-color:#eee!important;
+  border-color:#eee!important;
+  cursor:pointer!important;
+  text-decoration: none  !important;
 }
