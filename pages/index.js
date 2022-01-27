@@ -12,6 +12,7 @@ const { Row, Column } = Grid;
 
 function DiscountExample({ signer }) {
 	
+	const [itemPrice, setItemPrice] = useState("2500");
 	const quantity = 1;
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
@@ -37,6 +38,8 @@ function DiscountExample({ signer }) {
 			];
 			
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
+			storage.setItem("cart", JSON.stringify(cart));
+			setItemPrice(cart.subtotalPrice);
 		}else{
 			const lineItemsToAdd = [
 				{
@@ -54,7 +57,7 @@ function DiscountExample({ signer }) {
 			const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
 			storage.setItem("cart", JSON.stringify(cartremoved));
 			console.log(cartremoved);
-			setPrice(cartremoved.subtotalPrice);
+			setItemPrice(cartremoved.subtotalPrice);
 		}
 
 		
@@ -81,7 +84,7 @@ function DiscountExample({ signer }) {
 		
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 			storage.setItem("cart", JSON.stringify(cart));
-			setPrice(cart.subtotalPrice);
+			setItemPrice(cart.subtotalPrice);
 
 		} else {
 
@@ -105,7 +108,7 @@ function DiscountExample({ signer }) {
 			const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
 			storage.setItem("cart", JSON.stringify(cartremoved));
 			console.log(cartremoved);
-			setPrice(cartremoved.subtotalPrice);
+			setItemPrice(cartremoved.subtotalPrice);
 
 		}
 		
@@ -131,6 +134,7 @@ function DiscountExample({ signer }) {
 	return (
 		<>
 			<h2>Discount Example</h2>
+			<p>${itemPrice}.00</p>
 			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
