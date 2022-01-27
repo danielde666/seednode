@@ -222,29 +222,25 @@ const Index = ({ product }) => {
 					: 
 					<Button
 						onClick={async () => {
+							
 							const storage = window.localStorage;
-							const cart = JSON.parse(storage.getItem("cart"));
-							if (cart !== "") {
-								Router.replace(cart.webUrl);
-							}else{
-								const checkout = await client.checkout.create();
-								newcheckoutId = checkout.id;
-								storage.setItem("checkoutId", newcheckoutId);
-								const lineItemsToAdd = [
+							const checkout = await client.checkout.create();
+							const newcheckoutId = checkout.id;
+							storage.setItem("checkoutId", newcheckoutId);
+							const lineItemsToAdd = [
 								{
 								variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
 								//regular variant id 
-								quantity,
+								quantity:1,
 								//customAttributes: [{key: "MyKey", value: "MyValue"}]
 								},
-								];
-
-								const regularcart = await client.checkout.addLineItems(newcheckoutId, lineItemsToAdd);
-								const newcheckout = await client.checkout.fetch(newcheckoutId);
-								const newcheckouturl = newcheckout.weburl;
-								storage.setItem("cart", JSON.stringify(newcheckout));
-								Router.replace(newcheckouturl)
-							}
+							];
+							await client.checkout.addLineItems(newcheckoutId, lineItemsToAdd);
+							const newcheckout = await client.checkout.fetch(newcheckoutId);
+							const newcheckouturl = newcheckout.weburl;
+							storage.setItem("cart", JSON.stringify(newcheckout));
+							Router.replace(newcheckouturl)
+							
 						}}
 					>
 					PURCHASE
