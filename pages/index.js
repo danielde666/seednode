@@ -167,6 +167,8 @@ function DiscountExample({ signer }) {
 		//setLineItem(discounted)
 		console.log("discounted");
 		removeRegularAddDiscount();
+		setItemPrice("$1250.00");
+
 		} else {
 		//setLineItem(regular)
 		console.log("regular")
@@ -179,7 +181,7 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<p>PRICE:  {discountHolder === null ? "$2500" : "$1250.00"}</p>
+			<p>PRICE:  {itemPrice}</p>
 			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
