@@ -217,11 +217,11 @@ const Index = ({ product }) => {
 				<Column width={10} className="imageholder">
 					<Row>
 						<br></br>
-						<Image src={image.src} width={500} height={800} />
+						<Image src={image.src} width={500} height={600} />
 					</Row>
 				</Column>
 
-				<Column style={{ marginTop: 50 }} width={6} className="infoholder">
+				<Column width={6} className="infoholder">
 					<Header as="h3">{product.title}</Header>
 
 					<>
