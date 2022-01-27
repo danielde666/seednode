@@ -228,8 +228,8 @@ const Index = ({ product }) => {
 								Router.replace(cart.webUrl);
 							}else{
 								const checkout = await client.checkout.create();
-								checkoutId = checkout.id;
-								storage.setItem("checkoutId", checkoutId);
+								newcheckoutId = checkout.id;
+								storage.setItem("checkoutId", newcheckoutId);
 								const lineItemsToAdd = [
 								{
 								variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
@@ -239,10 +239,11 @@ const Index = ({ product }) => {
 								},
 								];
 
-								const regularcart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-								storage.setItem("cart", JSON.stringify(regularcart));
-								setItemPrice(regularcart.subtotalPrice);
-								Router.replace(regularcart.webUrl)
+								const regularcart = await client.checkout.addLineItems(newcheckoutId, lineItemsToAdd);
+								const newcheckout = await client.checkout.fetch(newcheckoutId);
+								const newcheckouturl = newcheckout.weburl;
+								storage.setItem("cart", JSON.stringify(newcheckout));
+								Router.replace(newcheckouturl)
 							}
 						}}
 					>
