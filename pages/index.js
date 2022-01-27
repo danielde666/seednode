@@ -217,7 +217,7 @@ const Index = ({ product }) => {
 				<Column width={10} className="imageholder">
 					<Row>
 						<br></br>
-						<Image src={image.src} width={500} height={500} />
+						<Image src={image.src} width={500} height={800} />
 					</Row>
 				</Column>
 
