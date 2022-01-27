@@ -106,21 +106,7 @@ const Index = ({ product, discountedproduct }) => {
 
 
 
-		useEffect(() => {
-		if(discountHolder !== null) {
-			if(discountHolder) {
-			//setLineItem(discounted)
-			console.log("discounted");
-			removeRegularAddDiscount();
-			} else {
-			//setLineItem(regular)
-			console.log("regular")
-			addRegularRemoveDiscount();
-			}
-		}
-		}, [discountHolder])
-
-
+	
 
 	const addToCart = async () => {
 		const storage = window.localStorage;
