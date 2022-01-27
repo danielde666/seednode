@@ -19,7 +19,7 @@ function DiscountExample({ signer }) {
 			{
 				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
 				//regularid
-				quantity:1,
+				quantity,
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
@@ -47,7 +47,7 @@ function DiscountExample({ signer }) {
 			{
 				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==",
 				//discountid
-				quantity:1,
+				quantity,
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
