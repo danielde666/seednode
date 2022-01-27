@@ -202,7 +202,6 @@ const Index = ({ product }) => {
 export async function getServerSideProps(context) {
 	const { req } = context;
 	const product = await client.product.fetchByHandle("carrot-seed-packet");
-	const discountedproduct = await client.product.fetchByHandle("copy-of-seed-date-painting");
 	const walletready = req.cookies.walletready;
 
 	return {
