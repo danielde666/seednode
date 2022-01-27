@@ -92,7 +92,7 @@ function DiscountExample({ signer,product,discountedproduct }) {
 	);
 }
 
-const Index = ({ product, discountedproduct }) => {
+const Index = ({ product }) => {
 	const { signer, account } = useWeb3();
 	const [price, setPrice] = useState(0);
 
@@ -198,8 +198,8 @@ const Index = ({ product, discountedproduct }) => {
 
 export async function getServerSideProps(context) {
 	const { req } = context;
-	const product = await client.product.fetch("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzcwNzgzNzkxNTk3MjA=");
-	const discountedproduct = await client.product.fetch("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzczMjkwMDk1MDAzMjg=");
+	const product = await client.product.fetchByHandle("carrot-seed-packet");
+	const discountedproduct = await client.product.fetchByHandle("copy-of-seed-date-painting");
 	const walletready = req.cookies.walletready;
 
 	return {
