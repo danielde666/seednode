@@ -20,14 +20,14 @@ function DiscountExample({ signer }) {
 		const lineItemsToAdd = [
 			{
 				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
-				//regularid
+				//regular variant id 
 				quantity,
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
 		const lineItemsToRemove = [
 			
-			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==" //discount 
+			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzczMjkwMDk1MDAzMjg=" //discount product id 
 		];
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 		const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
@@ -48,14 +48,14 @@ function DiscountExample({ signer }) {
 		const lineItemsToAdd = [
 			{
 				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==",
-				//discountid
+				//discount variant id 
 				quantity,
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
 		const lineItemsToRemove = [
 			
-			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==" //regularid
+			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzcwNzgzNzkxNTk3MjA=" //regular product id
 			
 		];
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
