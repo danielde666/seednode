@@ -206,15 +206,12 @@ const Index = ({ product }) => {
 	const connected = Boolean(account);
 
 
-	this.state = {
-		visible:false
-	 }
-
+	
 
 
 
 	return (
-		<Grid container centered verticalAlign='middle' stackable className={this.state.visible?'fadeIn':'fadeOut'}>
+		<Grid container centered verticalAlign='middle' stackable className="fade-in">
 			<Row className="rowholder">
 				<Column width={10} className="imageholder">
 					<Row>
