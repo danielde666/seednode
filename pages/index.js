@@ -181,7 +181,7 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<p>PRICE:  {itemPrice}</p>
+			<p>PRICE:  ${itemPrice}</p>
 			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
@@ -234,7 +234,7 @@ const Index = ({ product }) => {
 				
 
 				
-					<div style={} className="discountholder">
+					<div className="discountholder">
 						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
 					</div>
 					{connected ? 
