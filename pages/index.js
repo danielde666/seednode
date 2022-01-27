@@ -19,13 +19,13 @@ function DiscountExample({ signer }) {
 			{
 				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
 				//regularid
-				quantity,
+				quantity:"1",
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
 		const lineItemsToRemove = [
 			
-			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==" //discount id 
+			"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==" //discount 
 		];
 		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 		const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
@@ -47,7 +47,7 @@ function DiscountExample({ signer }) {
 			{
 				variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==",
 				//discountid
-				quantity,
+				quantity:"1",
 				//customAttributes: [{key: "MyKey", value: "MyValue"}]
 			},
 		];
@@ -202,6 +202,7 @@ const Index = ({ product }) => {
 export async function getServerSideProps(context) {
 	const { req } = context;
 	const product = await client.product.fetchByHandle("carrot-seed-packet");
+	const discountedproduct = await client.product.fetchByHandle("copy-of-seed-date-painting");
 	const walletready = req.cookies.walletready;
 
 	return {
