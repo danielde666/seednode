@@ -167,7 +167,7 @@ function DiscountExample({ signer }) {
 		//setLineItem(discounted)
 		console.log("discounted");
 		removeRegularAddDiscount();
-		setItemPrice("$1250.00");
+		setItemPrice("1250.00");
 
 		} else {
 		//setLineItem(regular)
@@ -211,7 +211,7 @@ const Index = ({ product }) => {
 
 
 	return (
-		<Grid container centered verticalAlign='middle' stackable className="fade-in">
+		<Grid container centered verticalAlign='middle' stackable className="fade-in" style={{opacity:0}}>
 			<Row className="rowholder">
 				<Column width={10} className="imageholder">
 					<Row>
