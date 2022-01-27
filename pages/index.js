@@ -12,7 +12,7 @@ const { Row, Column } = Grid;
 
 function DiscountExample({ signer }) {
 	
-	const [itemPrice, setItemPrice] = useState("2500");
+	const [itemPrice, setItemPrice] = useState("2500.00");
 	const quantity = 1;
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
@@ -41,6 +41,7 @@ function DiscountExample({ signer }) {
 			storage.setItem("cart", JSON.stringify(cart));
 			setItemPrice(cart.subtotalPrice);
 		}else{
+
 			const lineItemsToAdd = [
 				{
 					variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTA5NzU2Mjg4MjIxNg==",
@@ -49,15 +50,22 @@ function DiscountExample({ signer }) {
 					//customAttributes: [{key: "MyKey", value: "MyValue"}]
 				},
 			];
-			const lineItemsToRemove = [
-			
-				"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzczMjkwMDk1MDAzMjg=" //discount product id 
-			];
+		
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-			const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
-			storage.setItem("cart", JSON.stringify(cartremoved));
-			console.log(cartremoved);
-			setItemPrice(cartremoved.subtotalPrice);
+			console.log(cart);
+			setItemPrice(cart.subtotalPrice);
+
+			const exisitingcheckout = await client.checkout.fetch(checkoutId);
+			if (exisitingcheckout.lineItems){
+				
+				const exisitingcheckoutitem = exisitingcheckout.lineItems[0].id;
+				const lineItemsToRemove = [
+					exisitingcheckoutitem //discount product id 
+				];
+				const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+				storage.setItem("cart", JSON.stringify(cartremoved));
+				console.log(cartremoved);
+			}
 		}
 
 		
@@ -89,7 +97,6 @@ function DiscountExample({ signer }) {
 		} else {
 
 
-
 			const lineItemsToAdd = [
 				{
 					variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MTkxNTEwODUyNDIwMA==",
@@ -98,17 +105,22 @@ function DiscountExample({ signer }) {
 					//customAttributes: [{key: "MyKey", value: "MyValue"}]
 				},
 			];
-			const lineItemsToRemove = [
-				
-				"Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzcwNzgzNzkxNTk3MjA=" //regular product id
-				
-			];
-			
+		
 			const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-			const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
-			storage.setItem("cart", JSON.stringify(cartremoved));
-			console.log(cartremoved);
+			console.log(cart);
 			setItemPrice(cartremoved.subtotalPrice);
+
+			const exisitingcheckout = await client.checkout.fetch(checkoutId);
+			if (exisitingcheckout.lineItems){
+				
+				const exisitingcheckoutitem = exisitingcheckout.lineItems[0].id;
+				const lineItemsToRemove = [
+					exisitingcheckoutitem //discount product id 
+				];
+				const cartremoved = await client.checkout.removeLineItems(checkoutId, lineItemsToRemove);
+				storage.setItem("cart", JSON.stringify(cartremoved));
+				console.log(cartremoved);
+			}
 
 		}
 		
@@ -133,8 +145,7 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<h2>Discount Example</h2>
-			<p>${itemPrice}.00</p>
+			<p>PRICE: ${itemPrice}</p>
 			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
@@ -158,48 +169,11 @@ const Index = ({ product }) => {
 	const quantity = 1;
 	const connected = Boolean(account);
 
-	const applyDiscount = async () => {
-		const storage = window.localStorage;
-		let checkoutId = storage.getItem("checkoutId");
-
-		if (!checkoutId) {
-			const checkout = await client.checkout.create();
-			checkoutId = checkout.id;
-			storage.setItem("checkoutId", checkoutId);
-		}
-
-		const cart = await client.checkout.addDiscount(checkoutId, "SEEDHOLDER");
-		storage.setItem("cart", JSON.stringify(cart));
-		setPrice(cart.subtotalPrice);
-	};
 
 
 
 
 
-	
-
-	const addToCart = async () => {
-		const storage = window.localStorage;
-		let checkoutId = storage.getItem("checkoutId");
-
-		if (!checkoutId) {
-			const checkout = await client.checkout.create();
-			checkoutId = checkout.id;
-			storage.setItem("checkoutId", checkoutId);
-		}
-		const lineItemsToAdd = [
-			{
-				variantId: product.variants[0].id,
-				quantity,
-				//customAttributes: [{key: "MyKey", value: "MyValue"}]
-			},
-		];
-		const cart = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-
-		storage.setItem("cart", JSON.stringify(cart));
-		setPrice(cart.subtotalPrice);
-	};
 
 	return (
 		<Grid container centered>
@@ -221,20 +195,13 @@ const Index = ({ product }) => {
 					</>
 					<p>{product.description}</p>
 
-					<br></br>
+				
 
-					<span>
-						Price : {product.variants[0].price}
-						<br></br>
-						Subtotal: {price}
-						<br></br>
-					</span>
-
+				
 					<div style={{ padding: "2rem", border: "1px solid black" }}>
 						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
 					</div>
 
-					<Button onClick={() => addToCart()}>Add To Cart</Button>
 					<Button
 						onClick={() => {
 							const storage = window.localStorage;
@@ -244,7 +211,7 @@ const Index = ({ product }) => {
 							}
 						}}
 					>
-						CHECKOUT
+					PURCHASE
 					</Button>
 				</Column>
 			</Row>
