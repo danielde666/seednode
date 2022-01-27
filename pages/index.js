@@ -94,9 +94,7 @@ function DiscountExample({ signer }) {
 
 			<Button
 				onClick={() => {
-					const storage = window.localStorage;
-					const cart = JSON.parse(storage.getItem("cart"));
-					if (cart !== "") {
+					if (weburl) {
 						Router.replace({webUrl});
 					}
 				}}
