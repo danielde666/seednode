@@ -211,7 +211,7 @@ const Index = ({ product }) => {
 
 
 	return (
-		<Grid  fluid centered verticalAlign='middle' stackable className="fade-in maincontent" style={{opacity:0, padding: "30px 30px" }}>>
+		<Grid  fluid centered verticalAlign='middle' stackable className="fade-in maincontent" style={{opacity:0, padding: "30px 30px" }}>
 			<Row className="rowholder">
 				<Column width={10} className="imageholder" centered verticalAlign="middle">
 					<Row>
