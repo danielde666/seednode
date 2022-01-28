@@ -182,7 +182,7 @@ function DiscountExample({ signer }) {
 	return (
 		<>
 			<p>PRICE:  ${itemPrice}</p>
-			<p>NFT SEEDHOLDERS receive a discount on this painting.Connect your wallet to vertify</p>
+			<p>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Connect your wallet to verify</p>
 			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
