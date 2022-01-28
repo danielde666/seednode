@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.shopify.com','danielde.myshopify.com']
+    domains: ['cdn.shopify.com','lucien-smith-studio.myshopify.com']
   },
 }
