@@ -21,11 +21,11 @@ const Navbar = () => {
 
 	return (
 		<Visibility once={false} onBottomPassed={() => setFixed(true)} onBottomPassedReverse={() => setFixed(false)}>
-			<Segment textAlign="center" style={{ minHeight: 50, padding: "1em 2em" }}>
+			<Segment textAlign="center" style={{ minHeight: 50, padding: "30px 30px" }}>
 				<Menu fixed={fixed ? "top" : null} borderless>
 					<Container fluid>
 						<Link href="/">
-							<Menu.Item>Lucien Smith Studio</Menu.Item>
+							<Menu.Item>Lucien Smith</Menu.Item>
 						</Link>
 
 						<Menu.Item
@@ -46,7 +46,7 @@ const Navbar = () => {
 const Footer = () => {
 	return (
 		<>
-			<footer className="ui container fluid">
+			<footer className="ui container fluid" style={{ minHeight: 50, padding: "30px 30px" }}>
 				<Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link>
 				<br></br>
 				<Link href="https://twitter.com/feareatsthesoil">Twitter</Link>
