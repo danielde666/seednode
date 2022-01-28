@@ -21,10 +21,10 @@ const Navbar = () => {
 
 	return (
 		<Visibility once={false} onBottomPassed={() => setFixed(true)} onBottomPassedReverse={() => setFixed(false)}>
-			<Segment textAlign="center" style={{ minHeight: 50, padding: "30px 30px" }}>
+			<Segment textAlign="center" style={{ minHeight: 50, padding: "0px 30px" }}>
 				<Menu fixed={fixed ? "top" : null} borderless>
 					<Container fluid>
-						<Link href="/">
+						<Link href="https://www.luciensmithstudio.com/">
 							<Menu.Item>Lucien Smith</Menu.Item>
 						</Link>
 
