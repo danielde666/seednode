@@ -4,12 +4,23 @@ import { Container, Segment, Menu, Visibility } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "../styles/inter.css";
 import "../styles/globals.css";
-
+import Head from "next/head";
 import { Provider as OnboardProvider } from "../contexts/Onboard";
 
 import useWeb3 from "../hooks/useWeb3";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
+
+
+
+const Newheader = () =>{
+	return(
+		<Head>
+		  <title>Lucien Smith Studio - Seed Painting</title>
+		  <meta property="og:title" content="Lucien Smith Studio - Seed Painting" key="title" />
+		</Head>
+	)
+}
 const Navbar = () => {
 	const { connect, disconnect, account } = useWeb3();
 	const [fixed, setFixed] = useState(false);
@@ -64,6 +75,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<OnboardProvider>
+				<Newheader/>
 				<Navbar />
 				<Component {...pageProps} />
 				<Footer />

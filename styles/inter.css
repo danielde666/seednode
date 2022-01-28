@@ -1,5 +1,8 @@
-
-  @font-face{
-    font-family:"Gill Sans Nova W01 SemiBold";
-    src:url("/5fb9e481-085f-4ad5-8574-ffabb4dbe7a9.woff2") format("woff2"),url("/c1cc8a6-92c2-4d62-973e-e4a20c3df0bf.woff") format("woff");
+@font-face {
+  font-family: 'Gill Sans Nova Cn';
+  src: url('/GillSansNova-SemiBold.woff2') format('woff2'),
+      url('/GillSansNova-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }

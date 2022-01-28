@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Gill Sans Nova W01 SemiBold','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 }
@@ -61,8 +61,8 @@ a.ui.card:hover {
 }
 
 
-footer{
-  font-family:'Gill Sans Nova W01 SemiBold';
+footer{  font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   position: relative;
     margin: 40px auto 10px;
 }
@@ -70,8 +70,8 @@ footer{
 
 
 .ui.button,.ui.button:hover {
-    background: #fff none;
-    font-family: 'Gill Sans Nova W01 SemiBold',Inter,Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+    background: #fff none;  font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     padding: 0;
     color: #000;
     margin-right: 10px;

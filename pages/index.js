@@ -2,13 +2,14 @@ import { useState , useEffect} from "react";
 import Image from "next/image";
 import { Button, Header, Grid } from "semantic-ui-react";
 import Router from "next/router";
-
 import { client } from "../utils/shopify";
 import useWeb3 from "../hooks/useWeb3";
 import useDiscountHolder from "../hooks/useDiscountHolder";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 const { Row, Column } = Grid;
+
+
 
 function DiscountExample({ signer }) {
 	
@@ -205,12 +206,18 @@ const Index = ({ product }) => {
 	const quantity = 1;
 	const connected = Boolean(account);
 
+	const 
 
 	
 
 
 
 	return (
+
+
+	
+
+		
 		<Grid container centered verticalAlign='middle' stackable className="fade-in" style={{opacity:0}}>
 			<Row className="rowholder">
 				<Column width={10} className="imageholder">
