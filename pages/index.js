@@ -182,7 +182,7 @@ function DiscountExample({ signer }) {
 	return (
 		<>
 			<p>PRICE:  ${itemPrice}</p>
-			<p>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Connect your wallet to verify</p>
+			<p>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Verify below.</p>
 			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
@@ -235,7 +235,12 @@ const Index = ({ product }) => {
 
 				
 					<div className="discountholder">
-						{connected ? <DiscountExample signer={signer} /> : <div>Connect to wallet</div>}
+
+
+
+						{connected ? <DiscountExample signer={signer} /> : 
+						
+			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Connect your wallet to verify.</div>}
 					</div>
 					{connected ? 
 					<Button
