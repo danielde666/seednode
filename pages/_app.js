@@ -73,7 +73,6 @@ function MyApp({ Component, pageProps }) {
 			</Head>
 	  
 			<OnboardProvider>
-				<Newheader/>
 				<Navbar />
 				<Component {...pageProps} />
 				<Footer />
