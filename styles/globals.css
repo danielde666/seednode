@@ -74,7 +74,7 @@ a.ui.card:hover {
 
 
 footer{  font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   position: relative;
     margin: 40px auto 10px;
 }
@@ -82,8 +82,11 @@ footer{  font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystem
 
 
 .ui.button,.ui.button:hover {
-    background: #fff none;  font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: #fff none;   
+    font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
     padding: 0;
     color: #000;
     margin-right: 10px;

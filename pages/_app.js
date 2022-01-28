@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Container, Segment, Menu, Visibility } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
-import "../styles/inter.css";
+import "../styles/gillsans.css";
 import "../styles/globals.css";
 import Head from "next/head";
 import { Provider as OnboardProvider } from "../contexts/Onboard";
