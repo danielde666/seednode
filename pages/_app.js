@@ -4,11 +4,14 @@ import { Container, Segment, Menu, Visibility } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "../styles/inter.css";
 import "../styles/globals.css";
-
+import Head from "next/head";
 import { Provider as OnboardProvider } from "../contexts/Onboard";
 
 import useWeb3 from "../hooks/useWeb3";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
+
+
+
 
 const Navbar = () => {
 	const { connect, disconnect, account } = useWeb3();
@@ -62,7 +65,13 @@ function MyApp({ Component, pageProps }) {
 	useWalletCheckTrigger();
 
 	return (
+	
 		<>
+			<Head>
+			<title>Lucien Smith Studio - Seed Painting</title>
+			<meta property="og:title" content="Lucien Smith Studio - Seed Painting" key="title" />
+			</Head>
+	  
 			<OnboardProvider>
 				<Navbar />
 				<Component {...pageProps} />
