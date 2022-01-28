@@ -46,7 +46,7 @@ const Navbar = () => {
 const Footer = () => {
 	return (
 		<>
-			<footer className="ui container">
+			<footer className="ui container fluid">
 				<Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link>
 				<br></br>
 				<Link href="https://twitter.com/feareatsthesoil">Twitter</Link>
