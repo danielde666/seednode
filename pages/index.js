@@ -221,10 +221,10 @@ const Index = ({ product }) => {
 				</Column>
 
 				<Column width={6} className="infoholder">
-					<Header as="h3">{product.title}</Header>
+					
 
 					<>
-						<p>
+						<p>{product.title}<br></br>
 							Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8.5 x 10 in<br></br> 64 x 96 cm
 						</p>
 					</>
