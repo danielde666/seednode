@@ -13,14 +13,6 @@ import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 
 
-const Newheader = () =>{
-	return(
-		<Head>
-		  <title>Lucien Smith Studio - Seed Painting</title>
-		  <meta property="og:title" content="Lucien Smith Studio - Seed Painting" key="title" />
-		</Head>
-	)
-}
 const Navbar = () => {
 	const { connect, disconnect, account } = useWeb3();
 	const [fixed, setFixed] = useState(false);
@@ -73,7 +65,13 @@ function MyApp({ Component, pageProps }) {
 	useWalletCheckTrigger();
 
 	return (
+	
 		<>
+			<Head>
+			<title>Lucien Smith Studio - Seed Painting</title>
+			<meta property="og:title" content="Lucien Smith Studio - Seed Painting" key="title" />
+			</Head>
+	  
 			<OnboardProvider>
 				<Newheader/>
 				<Navbar />
