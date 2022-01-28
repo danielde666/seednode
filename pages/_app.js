@@ -24,9 +24,9 @@ const Navbar = () => {
 			<Segment textAlign="center" style={{ minHeight: 50, padding: "0px 10px" }}>
 				<Menu fixed={fixed ? "top" : null} borderless>
 					<Container fluid>
-						<Link>
-							<Menu.Item href="https://www.luciensmithstudio.com/"> Lucien Smith</Menu.Item>
-						</Link>
+						
+							<Menu.Item><Link href="https://www.luciensmithstudio.com/"> Lucien Smith</Link></Menu.Item>
+						
 
 						<Menu.Item
 							position="right"
