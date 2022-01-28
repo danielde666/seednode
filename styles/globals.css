@@ -166,9 +166,13 @@ footer{   font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSyste
     opacity: 1;
   }
 }
+.ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item:hover {
+  cursor: pointer;
+  background: none;
+  color: rgba(0,0,0,.95);
+}
 
-
-@media screen (max-width:990px) {
+@media only screen and (max-width:768px) {
   .infoholder{
     text-align:center !important;
   }
