@@ -14,7 +14,7 @@ const { Row, Column } = Grid;
 
 function DiscountExample({ signer }) {
 	
-	const [itemPrice, setItemPrice] = useState("2500.00");
+	const [itemPrice, setItemPrice] = useState("$2500.00");
 	const quantity = 1;
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
@@ -169,7 +169,7 @@ function DiscountExample({ signer }) {
 		//setLineItem(discounted)
 		console.log("discounted");
 		removeRegularAddDiscount();
-		setItemPrice("1250.00");
+		setItemPrice("<strikethrough>$2500.00</strikethrough> $1250.00");
 
 		} else {
 		//setLineItem(regular)
@@ -183,9 +183,9 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<p>PRICE:  ${itemPrice}</p>
-			<p>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Verify below.</p>
-			<button onClick={checkForDiscount}>Check for discount</button>
+			<p>PRICE: {itemPrice}</p>
+			<p>SEED NFT owners - Receive a 50% discount.</p>
+			<button onClick={checkForDiscount}>Verify for discount</button>
 			<ul>
 				<li>
 					<b>Discount:</b> {discountHolder === null ? "unknown" : `${discountHolder}`}
@@ -239,7 +239,7 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>PRICE: $2500.00<br></br><br></br>SEED NFT OWNERS: Receive a discount on this painting.<br></br><a onClick={() => {connect()}}>Connect Wallet</a></div>}
+			<div>PRICE: $2500.00<br></br><br></br>SEED NFT owners - Receive a 50% discount.<br></br><a onClick={() => {connect()}}>Connect Wallet</a></div>}
 					</div>
 					{connected ? 
 					<Button
