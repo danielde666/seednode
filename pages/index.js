@@ -1,6 +1,6 @@
 import { useState , useEffect} from "react";
 import Image from "next/image";
-import { Button, Header, Grid, Link} from "semantic-ui-react";
+import { Button, Header, Grid} from "semantic-ui-react";
 import Router from "next/router";
 
 import { client } from "../utils/shopify";
@@ -241,12 +241,7 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br><Link onClick={() => {
-				connected ? disconnect() : connect();
-			}}
-		>
-			{connected ? "CONNECTED" : "CONNECT WALLET"}
-		</Link></div>}
+			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br><a onClick={() => {connect()}}>Connect Wallet</a></div>}
 					</div>
 					{connected ? 
 					<Button
