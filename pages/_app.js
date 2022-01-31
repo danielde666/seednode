@@ -6,12 +6,19 @@ import "../styles/gillsans.css";
 import "../styles/globals.css";
 import Head from "next/head";
 import { Provider as OnboardProvider } from "../contexts/Onboard";
-
+import Count from "/api/Count";
 import useWeb3 from "../hooks/useWeb3";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 
-
+const Counter = () => {
+	return (
+	  <div className="counter">
+		<Count />
+	  </div>
+	);
+  }
+  
 
 const Navbar = () => {
 	const { connect, disconnect, account } = useWeb3();
@@ -73,6 +80,7 @@ function MyApp({ Component, pageProps }) {
 			</Head>
 	  
 			<OnboardProvider>
+				<Counter/>
 				<Navbar />
 				<Component {...pageProps} />
 				<Footer />
