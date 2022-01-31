@@ -226,12 +226,10 @@ const Index = ({ product }) => {
 					
 
 					<>
-						<p>{product.title}<br></br>
+						<p>{product.title}(s)<br></br>
 							Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8.5 x 10 in<br></br> 64 x 96 cm
 						</p>
 					</>
-					<p>{product.description}</p>
-
 				
 
 				
@@ -241,7 +239,7 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br><a onClick={() => {connect()}}>Connect Wallet</a></div>}
+			<div>PRICE: $2500.00<br></br><br></br>SEED NFT OWNERS: Receive a discount on this painting.<br></br><a onClick={() => {connect()}}>Connect Wallet</a></div>}
 					</div>
 					{connected ? 
 					<Button

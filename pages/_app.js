@@ -68,8 +68,8 @@ function MyApp({ Component, pageProps }) {
 	
 		<>
 			<Head>
-			<title>Lucien Smith Studio - Seed Painting</title>
-			<meta property="og:title" content="Lucien Smith Studio - Seed Painting" key="title" />
+			<title>Lucien Smith Studio - Seed Date Painting(s)</title>
+			<meta property="og:title" content="Lucien Smith Studio - Seed Date Painting(s)" key="title" />
 			</Head>
 	  
 			<OnboardProvider>
