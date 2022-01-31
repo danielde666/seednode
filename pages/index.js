@@ -4,6 +4,8 @@ import { Button, Header, Grid } from "semantic-ui-react";
 import Router from "next/router";
 
 import { client } from "../utils/shopify";
+
+import { Provider as OnboardProvider } from "../contexts/Onboard";
 import useWeb3 from "../hooks/useWeb3";
 import useDiscountHolder from "../hooks/useDiscountHolder";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
@@ -197,8 +199,7 @@ function DiscountExample({ signer }) {
 }
 
 const Index = ({ product }) => {
-	const { signer, account } = useWeb3();
-	const [price, setPrice] = useState(0);
+	const { signer, account, connect } = useWeb3();
 
 	useWalletCheckTrigger();
 
@@ -240,7 +241,12 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Connect your wallet to verify.</div>}
+			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br><Link onClick={() => {
+				connected ? disconnect() : connect();
+			}}
+		>
+			{connected ? "CONNECTED" : "CONNECT WALLET"}
+		</Link></div>}
 					</div>
 					{connected ? 
 					<Button
