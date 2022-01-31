@@ -169,7 +169,7 @@ function DiscountExample({ signer }) {
 		//setLineItem(discounted)
 		console.log("discounted");
 		removeRegularAddDiscount();
-		setItemPrice("<strikethrough>$2500.00</strikethrough> $1250.00");
+		setItemPrice(`<strikethrough>$2500.00</strikethrough> $1250.00`);
 
 		} else {
 		//setLineItem(regular)
