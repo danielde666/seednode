@@ -182,8 +182,8 @@ function DiscountExample({ signer }) {
 	return (
 		<>
 			<p>PRICE:  ${itemPrice}</p>
-			<p>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Verify below.</p>
-			<button onClick={checkForDiscount}>Check for discount</button>
+			<p>SEED NFT OWNERS: Receive a discount on this painting..</p>
+			<button onClick={checkForDiscount}>Verify for discount</button>
 			<ul>
 				<li>
 					<b>Discount:</b> {discountHolder === null ? "unknown" : `${discountHolder}`}
@@ -197,6 +197,8 @@ function DiscountExample({ signer }) {
 }
 
 const Index = ({ product }) => {
+	
+	const { connect, disconnect, account } = useWeb3();
 	const { signer, account } = useWeb3();
 	const [price, setPrice] = useState(0);
 
@@ -240,7 +242,7 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>SEED NFT OWNERS - Receive a 50% discount.<br></br><link onClick={() => connect()}>Connect Wallet.</link></div>}
+			<div>SEED NFT OWNERS - Receive a 50% discount.<br></br><link onClick={connect()}>Connect Wallet.</link></div>}
 					</div>
 					{connected ? 
 					<Button
