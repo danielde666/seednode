@@ -169,7 +169,7 @@ function DiscountExample({ signer }) {
 		//setLineItem(discounted)
 		console.log("discounted");
 		removeRegularAddDiscount();
-		setItemPrice("$̶2̶5̶0̶0̶  $1250.00");
+		setItemPrice("$1250.00");
 
 		} else {
 		//setLineItem(regular)
@@ -183,7 +183,7 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<p>PRICE: {itemPrice}</p>
+			<p className="prices">PRICE: {discountHolder === null ? "$2500.00" : <><strike>$2500</strike> <span>$1250.00</span></>}</p>
 			<p>SEED NFT owners - Receive a 50% discount.</p>
 			<button onClick={checkForDiscount}>Verify for discount</button>
 			<ul>
