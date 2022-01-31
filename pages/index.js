@@ -1,6 +1,6 @@
 import { useState , useEffect} from "react";
 import Image from "next/image";
-import { Button, Header, Grid } from "semantic-ui-react";
+import { Button, Header, Grid, Link} from "semantic-ui-react";
 import Router from "next/router";
 
 import { client } from "../utils/shopify";
