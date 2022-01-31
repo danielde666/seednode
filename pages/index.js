@@ -182,8 +182,8 @@ function DiscountExample({ signer }) {
 	return (
 		<>
 			<p>PRICE:  ${itemPrice}</p>
-			<p>SEED NFT OWNERS: Receive a discount on this painting..</p>
-			<button onClick={checkForDiscount}>Verify for discount</button>
+			<p>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Verify below.</p>
+			<button onClick={checkForDiscount}>Check for discount</button>
 			<ul>
 				<li>
 					<b>Discount:</b> {discountHolder === null ? "unknown" : `${discountHolder}`}
@@ -197,8 +197,6 @@ function DiscountExample({ signer }) {
 }
 
 const Index = ({ product }) => {
-	
-	const { connect, disconnect, account } = useWeb3();
 	const { signer, account } = useWeb3();
 	const [price, setPrice] = useState(0);
 
@@ -207,7 +205,6 @@ const Index = ({ product }) => {
 	const [image] = product.images;
 	const quantity = 1;
 	const connected = Boolean(account);
-
 
 
 	
@@ -228,10 +225,11 @@ const Index = ({ product }) => {
 					
 
 					<>
-						<p>{product.title}(s)<br></br>
-							Lucien Smith<br></br>Acrylic paint and silkscreen ink on canvas<br></br> 8 x 10 in<br></br> 20.32 x 25.4 cm
+						<p>{product.title}<br></br>
+							Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8.5 x 10 in<br></br> 64 x 96 cm
 						</p>
 					</>
+					<p>{product.description}</p>
 
 				
 
@@ -242,7 +240,7 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>SEED NFT OWNERS - Receive a 50% discount.<br></br><link onClick={connect()}>Connect Wallet.</link></div>}
+			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Connect your wallet to verify.</div>}
 					</div>
 					{connected ? 
 					<Button
