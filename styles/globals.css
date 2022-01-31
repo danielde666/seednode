@@ -73,12 +73,21 @@ a.ui.card:hover {
 }
 
 
-footer{   font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+footer{   
+  font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   font-weight: 400 !important;
   font-size: 18px !important;
   position: relative;
     margin: 40px auto 10px;
+    
+}
+
+footer{
+  min-height: 50px;
+  padding: 0px 30px;
+  position: absolute;
+  bottom: 20px;
 }
 
 

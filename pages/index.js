@@ -12,7 +12,7 @@ const { Row, Column } = Grid;
 
 function DiscountExample({ signer }) {
 	
-	const [itemPrice, setItemPrice] = useState("2500.00");
+	const [itemPrice, setItemPrice] = useState("$2500.00");
 	const quantity = 1;
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
@@ -167,7 +167,7 @@ function DiscountExample({ signer }) {
 		//setLineItem(discounted)
 		console.log("discounted");
 		removeRegularAddDiscount();
-		setItemPrice("1250.00");
+		setItemPrice("<strikethrough>$2500.00</strikethrough> $1250.00");
 
 		} else {
 		//setLineItem(regular)
@@ -181,9 +181,9 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<p>PRICE:  ${itemPrice}</p>
-			<p>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Verify below.</p>
-			<button onClick={checkForDiscount}>Check for discount</button>
+			<p>PRICE: {itemPrice}</p>
+			<p>SEED NFT OWNERS - Receive a 50% discount.</p>
+			<button onClick={checkForDiscount}>Verify for discount</button>
 			<ul>
 				<li>
 					<b>Discount:</b> {discountHolder === null ? "unknown" : `${discountHolder}`}
@@ -207,6 +207,7 @@ const Index = ({ product }) => {
 	const connected = Boolean(account);
 
 
+
 	
 
 
@@ -225,11 +226,10 @@ const Index = ({ product }) => {
 					
 
 					<>
-						<p>{product.title}<br></br>
-							Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8.5 x 10 in<br></br> 64 x 96 cm
+						<p>{product.title}(s)<br></br>
+							Lucien Smith<br></br>Acrylic paint and silkscreen ink on canvas<br></br> 8 x 10 in<br></br> 20.32 x 25.4 cm
 						</p>
 					</>
-					<p>{product.description}</p>
 
 				
 
@@ -240,7 +240,7 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>SEED NFT OWNERS: Receive a discount on this painting.<br></br>Connect your wallet to verify.</div>}
+			<div>PRICE: $2500.00 <br></br>SEED NFT OWNERS - Receive a 50% discount.<br></br><link onClick={() => { connect();}}>Connect Wallet to Verify.</link></div>}
 					</div>
 					{connected ? 
 					<Button
