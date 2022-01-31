@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import Link from "next/link";
 import { Container, Segment, Menu, Visibility } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
@@ -9,7 +9,6 @@ import { Provider as OnboardProvider } from "../contexts/Onboard";
 import Count from "/api/Count";
 import useWeb3 from "../hooks/useWeb3";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
-
 
 const Counter = () => {
 	return (
