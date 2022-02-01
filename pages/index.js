@@ -207,6 +207,7 @@ const Index = ({ product }) => {
 	const quantity = 1;
 	const connected = Boolean(account);
 
+	{connected ? checkForDiscount()}
 
 	
 
