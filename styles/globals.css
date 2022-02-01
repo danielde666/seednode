@@ -218,7 +218,18 @@ position: relative;
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   font-weight: 400 !important;
   font-size: 18px !important;
+  padding:10px 15px;
     }
+
+
+    .Clock-days:after,
+    .Clock-hours:after,
+    .Clock-minutes:after{
+      content:":";
+      
+    }
+
+
 @media only screen and (max-width:768px) {
   .infoholder{
     text-align:center !important;
@@ -233,6 +244,12 @@ position: relative;
 footer{
   position:relative;
 }
+.Clock-days,
+    .Clock-hours,
+    .Clock-minutes,
+    .Clock-seconds{
+  font-size: 12px !important;
+    }
 }
 
 
