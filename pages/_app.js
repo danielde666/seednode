@@ -58,7 +58,7 @@ const Footer = () => {
 				<Link href="https://luciensmithstudio.substack.com/">Substack</Link>
 				<br></br>
 				<br></br>
-				©2022 Lucien Smith Studio. All rights reserved. <Link href="/privacy-policy">Privacy Policy</Link>
+				©2022 Lucien Smith Studio. All rights reserved. <Link href="https://www.luciensmithstudio.com/policies/privacy-policy">Privacy Policy</Link>
 				<br></br>
 			</footer>
 		</>
