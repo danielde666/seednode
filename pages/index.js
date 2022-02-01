@@ -207,13 +207,14 @@ const Index = ({ product }) => {
 	const quantity = 1;
 	const connected = Boolean(account);
 
-	{connected ? checkForDiscount()}
 
 	
+	{connected && checkForDiscount()}
 
 
 
 	return (
+		
 		<Grid  fluid centered verticalAlign='middle' stackable className="fade-in maincontent" style={{opacity:0, padding: "30px 30px" }}>
 			<Row className="rowholder">
 				<Column width={10} className="imageholder" centered verticalAlign="middle">
