@@ -10,10 +10,10 @@ class Clock extends Component {
       seconds: 0
     };
   }
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getTimeUntil(this.props.deadline);
   }
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     setInterval(() => this.getTimeUntil(this.props.deadline), 1000);
   }
   leading0(num) {
