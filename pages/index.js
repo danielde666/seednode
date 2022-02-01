@@ -84,7 +84,7 @@ function DiscountExample({ signer }) {
 		let currentcart = storage.getItem("cart");
 
 		if (currentcart){
-			const currentlineitemprice = cart.totalPrice;
+			const currentlineitemprice = cart.subtotalPrice;
 			setItemPrice(currentlineitemprice);
 			
 			const lineItemsToAdd = [
