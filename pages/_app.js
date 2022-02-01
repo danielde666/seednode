@@ -6,7 +6,7 @@ import "../styles/gillsans.css";
 import "../styles/globals.css";
 import Head from "next/head";
 import { Provider as OnboardProvider } from "../contexts/Onboard";
-import Count from "/api/Count";
+import Count from "api/Count";
 import useWeb3 from "../hooks/useWeb3";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
