@@ -34,15 +34,15 @@ class Clock extends Component {
   render() {
     return (
       <div>
-        <div className="Clock-days">{this.leading0(this.state.days)} Days</div>
+        <div className="Clock-days">{this.leading0(this.state.days)} <span>Days</span></div>
         <div className="Clock-hours">
-          {this.leading0(this.state.hours)} Hours
+          {this.leading0(this.state.hours)} <span>Hours</span>
         </div>
         <div className="Clock-minutes">
-          {this.leading0(this.state.minutes)} Minutes
+          {this.leading0(this.state.minutes)} <span>Minutes</span>
         </div>
         <div className="Clock-seconds">
-          {this.leading0(this.state.seconds)} Seconds
+          {this.leading0(this.state.seconds)} <span>Seconds</span>
         </div>
       </div>
     );

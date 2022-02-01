@@ -222,13 +222,10 @@ position: relative;
     }
 
 
-    .Clock-days:after,
-    .Clock-hours:after,
-    .Clock-minutes:after{
-      content:":";
-      
-    }
-
+.counter span{
+  color:rgb(214, 214, 214);
+}
+  
 
 @media only screen and (max-width:768px) {
   .infoholder{
