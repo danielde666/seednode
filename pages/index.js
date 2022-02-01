@@ -228,7 +228,7 @@ const Index = ({ product }) => {
 
 					<>
 						<p>{product.title}(s)<br></br>
-							Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8.5 x 10 in<br></br> 64 x 96 cm
+							Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8 x 10 in<br></br> 64 x 96 cm
 						</p>
 					</>
 				
@@ -252,7 +252,7 @@ const Index = ({ product }) => {
 							}
 						}}
 					>
-					Purchase
+					Purchase<br></br>(<small>CRYPTO ACCEPTED)</small>)
 					</Button>
 					:
 					<Button
@@ -272,7 +272,7 @@ const Index = ({ product }) => {
 							Router.replace(exisitingcheckout.webUrl);
 						}}
 					>
-					Purchase
+					Purchase<br></br>(<small>CRYPTO ACCEPTED)</small>)
 					</Button>
 
 
