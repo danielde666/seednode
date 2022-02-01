@@ -12,7 +12,7 @@ import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 const { Row, Column } = Grid;
 
-function DiscountExample({ signer }) {
+function DiscountExample({ signer,account }) {
 	
 	const [itemPrice, setItemPrice] = useState("$2500.00");
 	const quantity = 1;
