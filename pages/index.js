@@ -18,6 +18,7 @@ function DiscountExample({ signer }) {
 	const quantity = 1;
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
+	const connected = Boolean(account);
 
 	const addRegularRemoveDiscount = async () => {
 
@@ -180,6 +181,11 @@ function DiscountExample({ signer }) {
 	}, [discountHolder])
 
 
+	
+	
+	{connected && checkForDiscount()}
+
+
 
 	return (
 		<>
@@ -208,8 +214,6 @@ const Index = ({ product }) => {
 	const connected = Boolean(account);
 
 
-	
-	{connected && checkForDiscount()}
 
 
 
