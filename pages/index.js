@@ -243,7 +243,7 @@ const Index = ({ product }) => {
 			<div>PRICE: $2500.00<br></br><br></br>SEED NFT owners - Receive a 50% discount.<br></br><a onClick={() => {connect()}}>Connect Wallet</a></div>}
 					</div>
 					{connected ? 
-					<Button
+					<><Button
 						onClick={() => {
 							const storage = window.localStorage;
 							const cart = JSON.parse(storage.getItem("cart"));
@@ -252,9 +252,10 @@ const Index = ({ product }) => {
 							}
 						}}
 					>
-					Purchase<br></br>(<small>CRYPTO ACCEPTED)</small>)
-					</Button>
+					Purchase
+					</Button>	<small>CRYPTO ACCEPTED</small></>
 					:
+					<>
 					<Button
 						onClick={ async () => {
 							const checkout = await client.checkout.create();
@@ -272,11 +273,11 @@ const Index = ({ product }) => {
 							Router.replace(exisitingcheckout.webUrl);
 						}}
 					>
-					Purchase<br></br>(<small>CRYPTO ACCEPTED)</small>)
-					</Button>
+					Purchase
+					</Button>	<small>CRYPTO ACCEPTED</small></>
 
 
-					}			
+					}		
 
 
 
