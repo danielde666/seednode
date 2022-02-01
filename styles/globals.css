@@ -73,7 +73,7 @@ a.ui.card:hover {
 }
 
 
-footer{   
+footer.fluid{   
   font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   font-weight: 400 !important;
@@ -83,7 +83,7 @@ footer{
     
 }
 
-footer{
+footer.fluid{
   min-height: 50px;
   padding: 0px 30px;
   position: absolute;
@@ -225,7 +225,6 @@ position: relative;
 .counter span{
   color:rgb(214, 214, 214);
 }
-  
 
 @media only screen and (max-width:760px) {
   .infoholder{
@@ -238,7 +237,7 @@ position: relative;
   min-height: none;
 }
 
-footer{
+footer.fluid{
   position:relative;
   padding:15px !important;
 }
