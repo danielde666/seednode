@@ -12,13 +12,12 @@ import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 const { Row, Column } = Grid;
 
-function DiscountExample({ signer,account }) {
+function DiscountExample({ signer }) {
 	
 	const [itemPrice, setItemPrice] = useState("$2500.00");
 	const quantity = 1;
 	const { checkForDiscount, ownedCount, discountHolder } = useDiscountHolder({ signer });
 
-	const connected = Boolean(account);
 
 	const addRegularRemoveDiscount = async () => {
 
@@ -181,11 +180,6 @@ function DiscountExample({ signer,account }) {
 	}, [discountHolder])
 
 
-	
-	
-	{connected && checkForDiscount()}
-
-
 
 	return (
 		<>
@@ -213,12 +207,13 @@ const Index = ({ product }) => {
 	const quantity = 1;
 	const connected = Boolean(account);
 
+	
 
+	
 
 
 
 	return (
-		
 		<Grid  fluid centered verticalAlign='middle' stackable className="fade-in maincontent" style={{opacity:0, padding: "30px 30px" }}>
 			<Row className="rowholder">
 				<Column width={10} className="imageholder" centered verticalAlign="middle">
