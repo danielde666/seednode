@@ -183,9 +183,9 @@ function DiscountExample({ signer }) {
 
 	return (
 		<>
-			<p className="prices">PRICE: {discountHolder ? "$2500.00" : <><strike>$2500.00</strike> <span>$1250.00</span></>}</p>
+			<p className="prices">PRICE: {discountHolder ? <><strike>$2500.00</strike> <span>$1250.00</span></>  : "$2500.00"}</p>
 			<p>SEED NFT owners - Receive a 50% discount.</p>
-			<button onClick={checkForDiscount}>{discountHolder ? "Verify for Discount" : "Discount Applied!"}</button>
+			<button onClick={checkForDiscount}>{discountHolder ?"Discount Applied!"  : "Verify for Discount" }</button>
 			<ul>
 				<li>
 					<b>Discount:</b> {discountHolder === null ? "unknown" : `${discountHolder}`}
