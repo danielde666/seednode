@@ -8,9 +8,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div className="App-title">Countdown Timer</div>
-        <div className="App-date">{this.state.deadline}</div>
+      <div className="counter">
         <Clock deadline={this.state.deadline} />
       </div>
     );

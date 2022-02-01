@@ -12,9 +12,7 @@ import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
 
 const Counter = () => {
 	return (
-	  <div className="counter">
 		<Count />
-	  </div>
 	);
   }
   
