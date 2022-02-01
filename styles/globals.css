@@ -197,6 +197,28 @@ a{
   min-height: 1000px;
 }
 
+.counter{
+position: relative;
+    top: 0px;
+    width: 100%;
+    background: black;
+    color: #fff;
+    text-align:center;
+    
+	-webkit-animation: slide-in-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+    .Clock-days,
+    .Clock-hours,
+    .Clock-minutes,
+    .Clock-seconds{
+      display:inline-block;
+  text-transform: capitalize !important; font-family:  'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+    }
 @media only screen and (max-width:768px) {
   .infoholder{
     text-align:center !important;
@@ -211,4 +233,31 @@ a{
 footer{
   position:relative;
 }
+}
+
+
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
 }
