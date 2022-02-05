@@ -228,7 +228,7 @@ const Index = ({ product }) => {
 
 					<>
 						<p>{product.title}(s)<br></br>
-							Lucien Smith<br></br>Acrylic paint on canvas<br></br> 8 x 10 in<br></br> 20.32 x 25.4 cm
+							Lucien Smith<br></br>Acrylic paint and silkscreen ink on canvas<br></br> 8 x 10 in<br></br> 20.32 x 25.4 cm
 						</p>
 					</>
 				
