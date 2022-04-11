@@ -138,7 +138,7 @@ footer.fluid{
 
 .infoholder button:hover{
   background-color:#eee!important;
-  border-color:#eee!important;
+  border-color:#000!important;
   cursor:pointer!important;
   text-decoration: none  !important;
   color:#000 !important;
@@ -154,7 +154,7 @@ footer.fluid{
 
 .discountholder button:hover{
   background: #000 !important;
-  color: #fff;
+  color: #fff !important;
   border-color: #000 !important;
 }
 .fadeOut{

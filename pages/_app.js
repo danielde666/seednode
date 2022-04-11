@@ -50,7 +50,7 @@ const Navbar = () => {
 const Footer = () => {
 	return (
 		<>
-			<footer className="ui container fluid" style={{ textAlign:"center",minHeight: 50, padding: "0px 30px" }}>
+			<footer className="ui container fluid" style={{ textAlign:"center",minHeight: 50, padding: "120px 30px 0px" }}>
 				
 				<Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link>
 				• 
