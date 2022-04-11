@@ -113,8 +113,8 @@ footer.fluid{
   display:none;
 
 }
-.infoholder{
-  //text-align:left !important;
+.infoholder p{ 
+  line-height: 20px;
 }
 .infoholder button{
   background: #000!important;
@@ -141,7 +141,7 @@ footer.fluid{
   border-color:#eee!important;
   cursor:pointer!important;
   text-decoration: none  !important;
-  color:#000;
+  color:#000 !important;
 }
 
 
@@ -276,6 +276,7 @@ footer.fluid{
 
     .infoholder{
       padding:0px !important;
+      
     }
     .centered.stackable{
       padding:15px 5px !important;
