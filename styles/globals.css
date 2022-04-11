@@ -141,6 +141,7 @@ footer.fluid{
   border-color:#eee!important;
   cursor:pointer!important;
   text-decoration: none  !important;
+  color:#000;
 }
 
 
@@ -149,6 +150,12 @@ footer.fluid{
   background: #2DD67B !important;
   color: #fff;
   border-color: #2DD67B !important;
+}
+
+.discountholder button:hover{
+  background: #000 !important;
+  color: #fff;
+  border-color: #000 !important;
 }
 .fadeOut{
   opacity:0;

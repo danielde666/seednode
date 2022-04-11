@@ -239,16 +239,12 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>PRICE: $2500.00<br></br><br></br>SEED NFT owners - Receive a 50% discount.<br></br>
+			<div>PRICE: $2500.00<br></br><br></br>SEED NFT owners - Receive a 50% discount.<br></br><br></br><br></br>
 			
-			<button onClick={() => {connect()}}>Connect Wallet</button></div>
-			
-			}
+			<button onClick={() => {connect()}}>Connect Wallet</button></div>}
 					</div>
 					{connected ? 
-					<>
-					
-					<Button
+					<><Button
 						onClick={() => {
 							const storage = window.localStorage;
 							const cart = JSON.parse(storage.getItem("cart"));
