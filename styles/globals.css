@@ -114,7 +114,7 @@ footer.fluid{
 
 }
 .infoholder{
-  text-align:left !important;
+  //text-align:left !important;
 }
 .infoholder button{
   background: #fff!important;
