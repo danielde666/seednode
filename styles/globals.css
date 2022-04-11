@@ -153,8 +153,8 @@ footer.fluid{
 }
 
 .discountholder button:hover{
-  background: #000 !important;
-  color: #fff !important;
+  background: #eee !important;
+  color: #000 !important;
   border-color: #000 !important;
 }
 .fadeOut{
