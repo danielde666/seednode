@@ -223,7 +223,7 @@ const Index = ({ product }) => {
 					</Row>
 				</Column>
 
-				<Column width={16} className="infoholder" centered verticalAlign="middle" textAlign='center'> 
+				<Column width={16} className="infoholder" centered verticalAlign="middle" style={{textAlign:"center"}}> 
 					
 
 					<>
