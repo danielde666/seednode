@@ -117,7 +117,7 @@ footer.fluid{
   //text-align:left !important;
 }
 .infoholder button{
-  background: #fff!important;
+  background: #000!important;
   box-shadow: none !important;
   font-weight: 100 !important;
   -webkit-appearance: none !important;
@@ -131,13 +131,24 @@ footer.fluid{
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   font-weight: 400 !important;
   font-size: 18px !important;
+  color:#fff !important;
 }
+
+
 
 .infoholder button:hover{
   background-color:#eee!important;
   border-color:#eee!important;
   cursor:pointer!important;
   text-decoration: none  !important;
+}
+
+
+
+.discountholder button{
+  background: #2DD67B !important;
+  color: #fff;
+  border-color: #2DD67B !important;
 }
 .fadeOut{
   opacity:0;
