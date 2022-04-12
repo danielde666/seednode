@@ -223,7 +223,7 @@ const Index = ({ product }) => {
 
 						
 						{product.images.map((image, i) => {
-							return <Image width={666} height={420} src={image[i].src}/>;
+							return (<Image width={666} height={420} src={image[i].src}/>);
 						})}
 					</Row>
 				</Column>
