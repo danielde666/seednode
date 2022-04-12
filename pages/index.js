@@ -221,9 +221,7 @@ const Index = ({ product }) => {
 						<Image src={product.images[0].src} width={666} height={420} />
 
 
-						{product.images.map((image) => {
-							return <Image size={"large"} src={image.src}/>;
-						})}
+						
 					</Row>
 				</Column>
 
