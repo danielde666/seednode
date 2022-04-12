@@ -231,17 +231,16 @@ const Index = ({ product }) => {
 						
 				    <Swiper
       // install Swiper modules
-      modules={[Navigation, A11y]}
-      spaceBetween={50}
+      modules={[A11y]}
+      spaceBetween={"auto"}
       slidesPerView={"auto"}
 	  centeredSlides={true}
-      navigation
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
 						>
 					
 					{product.images.map((image,index) => {
-							return <SwiperSlide  key={index} ><Image width={666} height={420} src={image.src}/></SwiperSlide>;
+							return <SwiperSlide  key={index} ><Image size={"large"} src={image.src}/></SwiperSlide>;
 						})}
 					</Swiper>
 					</Row>
