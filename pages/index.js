@@ -231,7 +231,7 @@ const Index = ({ product }) => {
 						
 				    <Swiper
       // install Swiper modules
-      modules={[A11y]}
+      modules={[Navigation, A11y]}
       spaceBetween={"auto"}
       slidesPerView={"auto"}
 	  centeredSlides={true}
@@ -240,7 +240,7 @@ const Index = ({ product }) => {
 						>
 					
 					{product.images.map((image,index) => {
-							return <SwiperSlide  key={index} ><Image size={"large"} src={image.src}/></SwiperSlide>;
+							return <SwiperSlide  key={index} ><Image width={666} height={420} src={image.src}/></SwiperSlide>;
 						})}
 					</Swiper>
 					</Row>
