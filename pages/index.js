@@ -219,10 +219,24 @@ const Index = ({ product }) => {
 			<Row className="rowholder">
 				<Column width={16} className="imageholder" centered verticalAlign="top">
 					<Row>		
-						{product.images.map((image,index) => {
-							return <Image key={index} width={666} height={420} src={image.src}/>;
+						
+					<Swiper
+						spaceBetween={50}
+						slidesPerView={3}
+						onSlideChange={() => console.log('slide change')}
+						onSwiper={(swiper) => console.log(swiper)}
+						>
+					
+					{product.images.map((image,index) => {
+							return <SwiperSlide><Image key={index} width={666} height={420} src={image.src}/></SwiperSlide>;
 						})}
+					</Swiper>
 					</Row>
+
+
+
+
+
 				</Column>
 
 				<Column width={16} className="infoholder" centered verticalAlign="top"> 
