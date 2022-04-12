@@ -228,7 +228,7 @@ const Index = ({ product }) => {
 						>
 					
 					{product.images.map((image,index) => {
-							return <SwiperSlide><Image key={index} width={666} height={420} src={image.src}/></SwiperSlide>;
+							return <SwiperSlide  key={index} ><Image width={666} height={420} src={image.src}/></SwiperSlide>;
 						})}
 					</Swiper>
 					</Row>
