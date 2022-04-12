@@ -9,6 +9,7 @@ import { Provider as OnboardProvider } from "../contexts/Onboard";
 import useWeb3 from "../hooks/useWeb3";
 import useDiscountHolder from "../hooks/useDiscountHolder";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const { Row, Column } = Grid;
 
@@ -217,11 +218,7 @@ const Index = ({ product }) => {
 		<Grid  fluid centered verticalAlign='top' stackable className="fade-in maincontent" style={{opacity:0, padding: "0px 30px 90px" }}>
 			<Row className="rowholder">
 				<Column width={16} className="imageholder" centered verticalAlign="top">
-					<Row>
-						<Image src={product.images[0].src} width={666} height={420} />
-						<Image src={product.images[1].src} width={666} height={420} />
-
-						
+					<Row>		
 						{product.images.map((image,index) => {
 							return <Image key={index} width={666} height={420} src={image.src}/>;
 						})}
