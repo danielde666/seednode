@@ -233,7 +233,8 @@ const Index = ({ product }) => {
       // install Swiper modules
       modules={[Navigation, A11y]}
       spaceBetween={50}
-      slidesPerView={1}
+      slidesPerView={"auto"}
+	  centeredSlides={true}
       navigation
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
