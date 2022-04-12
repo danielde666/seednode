@@ -221,9 +221,9 @@ const Index = ({ product }) => {
 						<Image src={product.images[0].src} width={666} height={420} />
 						<Image src={product.images[1].src} width={666} height={420} />
 
-
-						{product.images.map((image) => {
-							return <Image width={666} height={420} src={image.src}/>;
+						
+						{product.images.map((image, i) => {
+							return <Image width={666} height={420} src={image[i].src}/>;
 						})}
 					</Row>
 				</Column>
