@@ -218,9 +218,12 @@ const Index = ({ product }) => {
 			<Row className="rowholder">
 				<Column width={16} className="imageholder" centered verticalAlign="top">
 					<Row>
-						<Image src={image.src} width={666} height={420} />
+						<Image src={product.images[0].src} width={666} height={420} />
 
 
+						{product.images.map((image) => {
+							return <Image size={"large"} src={image.src}/>;
+						})}
 					</Row>
 				</Column>
 
