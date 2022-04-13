@@ -181,7 +181,9 @@ footer{
 .swiper-slide-active{
   opacity:1;
   
-  transition: opacity 0.333s;
+  
+	-webkit-animation: softfade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: softfade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .swiper-button-next, .swiper-rtl .swiper-button-prev,.swiper-button-prev, .swiper-rtl .swiper-button-next{
@@ -260,6 +262,26 @@ a{
     opacity: 1;
   }
 }
+
+
+@-webkit-keyframes softfade-in {
+  0% {
+    opacity: .25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes softfade-in {
+  0% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 .ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item:hover {
   cursor: pointer;
   background: none;
@@ -351,9 +373,9 @@ footer.fluid{
       line-height: 16px;
       font-size: 14px;
   }
-  *, a, h1, h2, h3, p, span ,footer{
+  *, a, h1, h2, h3, p, span ,footer, button{
     font-weight: 700;
-    font-size: 14px;
+    font-size: 14px !important;
     line-height: 16px;
 }
 
