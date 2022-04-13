@@ -139,6 +139,15 @@ footer.fluid{
 .swiper-slide {
   //width: 80vw !important;
 }
+
+
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev,.swiper-button-prev, .swiper-rtl .swiper-button-next{
+  color:#fff;
+}
+
+
+
 .infoholder button:hover{
   background-color:#eee!important;
   border-color:#000!important;
