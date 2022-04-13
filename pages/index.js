@@ -199,7 +199,7 @@ function DiscountExample({ signer }) {
 	return (
 		<>
 			<p className="prices">{discountHolder ? <><strike>$2500.00</strike> <span>$1250.00</span></>  : "$2500.00"}<br></br><small>All works signed and dated on reverse.</small></p>
-			<p><br></br><br></br><Link href="https://seeds.lobus.io/">Seeds NFT</Link> owners - Receive a 50% discount.<br></br>Connect wallet to verify discount.</p>
+			<p><br></br><br></br>Seeds NFT owners - Receive a 50% discount.<br></br>Connect wallet to verify discount.</p>
 			<button onClick={checkForDiscount}>{discountHolder ?"Discount Applied!"  : "Verify" }</button>
 			<ul>
 				<li>
@@ -283,7 +283,7 @@ const Index = ({ product }) => {
 						{connected ? <DiscountExample signer={signer} /> : 
 						
 			<div>$2500.00<br></br><small>All works signed and dated on reverse.</small>
-			<br></br><br></br><br></br><br></br><Link href="https://seeds.lobus.io/">Seeds NFT</Link> owners - Receive a 50% discount.<br></br>Connect wallet to verify discount.<br></br><br></br>
+			<br></br><br></br><br></br><br></br>Seeds NFT owners - Receive a 50% discount.<br></br>Connect wallet to verify discount.<br></br><br></br>
 			
 			<button onClick={() => {connect()}}>Connect Wallet</button></div>}
 					</div>
