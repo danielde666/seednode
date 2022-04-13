@@ -105,7 +105,9 @@ footer.fluid{
   bottom: 20px;
 }
 
-
+footer.fluid a{
+  font-size:10px !important;
+}
 
 .ui.button,.ui.button:hover {
     background: #fff none;   
