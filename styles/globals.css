@@ -11,7 +11,9 @@ body {
 
     font-weight: 700;
     font-style: normal;
+    height:auto;
 }
+
 
 a {
   color: inherit;
@@ -365,9 +367,7 @@ font-style: normal;
   min-height: none;
 }
 
-.maincontent {
-  min-height: 87vh;
-}
+
 footer.fluid{
   position:relative;
   padding:0px !important;
@@ -405,6 +405,13 @@ small {
   font-size: 12px !important;
 }
 
+}
+
+
+@media only screen and (max-width:440px) {
+  .maincontent {
+    min-height: 80vh;
+  }
 }
 
 
