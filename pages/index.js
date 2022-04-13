@@ -297,7 +297,7 @@ const Index = ({ product }) => {
 						}}
 					>
 					Purchase
-					</Button><br></br><small>CRYPTO ACCEPTED</small></>
+					</Button><br></br><small>Crypto Accepted</small></>
 					:
 					<>
 					<Button
@@ -318,7 +318,7 @@ const Index = ({ product }) => {
 						}}
 					>
 					Purchase
-					</Button><br></br><small>CRYPTO ACCEPTED</small></>
+					</Button><br></br><small>Crypto Accepted</small></>
 
 
 					}		
