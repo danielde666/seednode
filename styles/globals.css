@@ -351,7 +351,9 @@ font-style: normal;
 .counter span{
   color:rgb(214, 214, 214);
 }
-
+.maincontent {
+ min-height: 96vh;
+}
 @media only screen and (max-width:760px) {
   .infoholder{
     text-align:center !important;
@@ -399,14 +401,7 @@ footer.fluid{
 small {
   font-size: 12px !important;
 }
-footer{
-    padding: 0px 0px 0px !important;
-    position: fixed;
-    width: 100% !important;
-    bottom: 0px;
-    margin: 0 !important;
 
-}
 }
 
 
