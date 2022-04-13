@@ -9,6 +9,7 @@ body {
     font-size: 18px;
     font-family: heisei-kaku-gothic-std, sans-serif;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    
 
     font-weight: 700;
     font-style: normal;
@@ -35,6 +36,8 @@ h1,h2,h3,p,a,span{
   font-size: 18px;
   font-family: heisei-kaku-gothic-std, sans-serif;
   font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  
+  
 
 font-weight: 700;
 font-style: normal;
@@ -92,6 +95,7 @@ footer.fluid{
     margin: 40px auto 10px;
     font-family: heisei-kaku-gothic-std, sans-serif;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    
 
 font-weight: 700;
 font-style: normal;
@@ -119,6 +123,7 @@ footer.fluid{
     margin-top: 20px;
     font-family: heisei-kaku-gothic-std, sans-serif;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    
 
 font-weight: 700;
 font-style: normal;
@@ -147,7 +152,8 @@ font-style: normal;
   padding: 10px 32px !important;
   cursor: pointer !important;
   width: 254px !important;
-  text-transform: capitalize !important; font-family: 'HiraginoKakuGothicProNW3', 'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  text-transform: capitalize !important; 
+  font-family: 'HiraginoKakuGothicProNW3', 'Gill Sans Nova Cn','Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   font-weight: 400 !important;
   font-size: 18px !important;
@@ -155,7 +161,9 @@ font-style: normal;
   margin:0px 0px 10px !important;
   line-height: 1em;
   font-family: heisei-kaku-gothic-std, sans-serif;
-  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+  
+  
 
 font-weight: 700;
 font-style: normal;
@@ -290,6 +298,8 @@ position: relative;
   padding:10px 15px;
   font-family: heisei-kaku-gothic-std, sans-serif;
   font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  
+  
 
 font-weight: 700;
 font-style: normal;
