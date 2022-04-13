@@ -134,6 +134,9 @@ footer.fluid{
   color:#fff !important;
   margin:0px 0px 10px !important;
 }
+.imageholder{
+  padding:0px !important;
+}
 
 .walletbutton{
   display:none !important;
