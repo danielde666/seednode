@@ -86,7 +86,7 @@ footer.fluid{
   font-weight: 700 !important;
   font-size: 18px ;
   position: relative;
-    margin: 40px auto 10px;
+    margin: 0px auto 10px;
     font-family: heisei-kaku-gothic-std, sans-serif;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     
@@ -365,9 +365,12 @@ font-style: normal;
   min-height: none;
 }
 
+.maincontent {
+  min-height: 87vh;
+}
 footer.fluid{
   position:relative;
-  padding:15px !important;
+  padding:0px !important;
 }
 .Clock-days,
     .Clock-hours,
