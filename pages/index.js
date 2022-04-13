@@ -231,7 +231,7 @@ const Index = ({ product }) => {
 					<Row style={{padding:"0px"}}>		
 						
 				    <Swiper
-   slidesPerView={1.25}
+   slidesPerView={1.5}
    centeredSlides={true}
    grabCursor={true}
    keyboard={{
@@ -239,7 +239,7 @@ const Index = ({ product }) => {
    }} 
    breakpoints={{
 	769: {
-	  slidesPerView: 1.5
+	  slidesPerView: {1.5}
 	},
   }}
    loop={true}
