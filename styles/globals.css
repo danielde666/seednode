@@ -175,7 +175,8 @@ footer{
 .swiper-slide {
   opacity:.25;
   
-  transition: opacity 0.333s;
+	-webkit-animation: softfade-out 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: softfade-out 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .swiper-slide-active{
@@ -280,6 +281,24 @@ a{
     opacity: 1;
   }
 }
+
+@-webkit-keyframes softfade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .25;
+  }
+}
+@keyframes softfade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .25;
+  }
+}
+
 
 
 .ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item:hover {
