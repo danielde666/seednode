@@ -239,7 +239,7 @@ const Index = ({ product }) => {
    }} 
    breakpoints={{
 	769: {
-	  slidesPerView: {1.5}
+	  slidesPerView: 1.5
 	},
   }}
    loop={true}
