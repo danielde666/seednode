@@ -9,8 +9,9 @@ import { Provider as OnboardProvider } from "../contexts/Onboard";
 import useWeb3 from "../hooks/useWeb3";
 import useDiscountHolder from "../hooks/useDiscountHolder";
 import useWalletCheckTrigger from "../hooks/useWalletCheckTrigger";
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
+// import required modules
+import { Keyboard, Scrollbar, Navigation, Pagination ,A11y} from "swiper";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -230,11 +231,26 @@ const Index = ({ product }) => {
 					<Row>		
 						
 				    <Swiper
-      // install Swiper modules
-      modules={[Navigation, A11y]}
-      spaceBetween={"auto"}
-      slidesPerView={"auto"}
-	  centeredSlides={true}
+   slidesPerView={1}
+   centeredSlides={false}
+   slidesPerGroupSkip={1}
+   grabCursor={true}
+   keyboard={{
+	 enabled: true,
+   }}
+   breakpoints={{
+	 769: {
+	   slidesPerView: 2,
+	   slidesPerGroup: 2,
+	 },
+   }}
+   scrollbar={true}
+   navigation={true}
+   pagination={{
+	 clickable: true,
+   }}
+   modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+   className="mySwiper"
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
 						>
