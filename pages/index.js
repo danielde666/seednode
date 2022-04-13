@@ -232,24 +232,14 @@ const Index = ({ product }) => {
 						
 				    <Swiper
    slidesPerView={1}
-   centeredSlides={false}
-   slidesPerGroupSkip={1}
+   centeredSlides={true}
    grabCursor={true}
    keyboard={{
 	 enabled: true,
    }}
-   breakpoints={{
-	 769: {
-	   slidesPerView: 2,
-	   slidesPerGroup: 2,
-	 },
-   }}
-   scrollbar={true}
+   loop={true}
    navigation={true}
-   pagination={{
-	 clickable: true,
-   }}
-   modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+   modules={[Keyboard, Navigation]}
    className="mySwiper"
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
