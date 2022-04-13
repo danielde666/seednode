@@ -33,6 +33,7 @@ const Navbar = () => {
 						
 
 						<Menu.Item
+						className="walletbutton"
 							position="right"
 							onClick={() => {
 								connected ? disconnect() : connect();

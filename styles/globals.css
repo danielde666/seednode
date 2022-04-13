@@ -135,9 +135,11 @@ footer.fluid{
   margin:0px 0px 10px !important;
 }
 
-
+.walletbutton{
+  display:none !important;
+}
 .swiper-slide {
-  opacity:.75;
+  opacity:.25;
 }
 
 .swiper-slide-active{
