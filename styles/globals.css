@@ -137,10 +137,12 @@ footer.fluid{
 
 
 .swiper-slide {
-  //width: 80vw !important;
+  opacity:.75;
 }
 
-
+.swiper-slide-active{
+  opacity:1;
+}
 
 .swiper-button-next, .swiper-rtl .swiper-button-prev,.swiper-button-prev, .swiper-rtl .swiper-button-next{
   color:#fff !important;

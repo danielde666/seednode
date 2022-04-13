@@ -52,9 +52,7 @@ const Footer = () => {
 		<>
 			<footer className="ui container fluid" style={{ textAlign:"center",minHeight: 50, padding: "0px 30px 0px" }}>
 				
-				<Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link>
-				• 
-				<Link href="https://twitter.com/feareatsthesoil">Twitter</Link>
+				<Link href="https://www.instagram.com/feareatsthesoil/?hl=en">Instagram</Link>&nbsp;•&nbsp;<Link href="https://twitter.com/feareatsthesoil">Twitter</Link>
 				
 				<br></br>
 				©2022 Lucien Smith Studio. All rights reserved. <Link href="https://www.luciensmithstudio.com/policies/privacy-policy">Privacy Policy</Link>
