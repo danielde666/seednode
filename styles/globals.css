@@ -427,7 +427,10 @@ small {
     min-height: 77vh;
     margin-bottom:60px !important;
   }
-  
+  footer.fluid{
+    bottom:10px !important;
+    padding-bottom:30px !important;
+  }
 .ui.button , button {
 
   font-size: 12px !important;
