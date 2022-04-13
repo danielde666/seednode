@@ -421,10 +421,11 @@ small {
 
 }
 
-
+.menu.fixed.top {
+  padding: 0px 10px;
+}
 @media only screen and (max-width:440px) {
   .maincontent {
-    min-height: 77vh;
     margin-bottom:60px !important;
   }
   footer.fluid{
