@@ -143,7 +143,7 @@ footer.fluid{
 
 
 .swiper-button-next, .swiper-rtl .swiper-button-prev,.swiper-button-prev, .swiper-rtl .swiper-button-next{
-  color:#fff;
+  color:#fff !important;
 }
 
 
