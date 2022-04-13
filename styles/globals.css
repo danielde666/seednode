@@ -102,7 +102,7 @@ footer.fluid{
   min-height: 50px;
   padding: 0px 30px;
   position: absolute;
-  bottom: 0px;
+  bottom: 20px;
 }
 
 
@@ -371,6 +371,7 @@ font-style: normal;
 footer.fluid{
   position:relative;
   padding:0px !important;
+  bottom:0px  !important;
 }
 .Clock-days,
     .Clock-hours,
