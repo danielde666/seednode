@@ -174,10 +174,14 @@ footer{
 }
 .swiper-slide {
   opacity:.25;
+  
+  transition: opacity 0.333s;
 }
 
 .swiper-slide-active{
   opacity:1;
+  
+  transition: opacity 0.333s;
 }
 
 .swiper-button-next, .swiper-rtl .swiper-button-prev,.swiper-button-prev, .swiper-rtl .swiper-button-next{
