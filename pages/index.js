@@ -243,7 +243,7 @@ const Index = ({ product }) => {
    }} 
    breakpoints={{
 	1000: {
-		slidesPerView: 1.75
+		slidesPerView: 2
 	},
 	769: {
 	  slidesPerView: 1.5
