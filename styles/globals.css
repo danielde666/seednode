@@ -424,7 +424,8 @@ small {
 
 @media only screen and (max-width:440px) {
   .maincontent {
-    min-height: 80vh;
+    min-height: 77vh;
+    margin-bottom:60px !important;
   }
   
 .ui.button , button {
