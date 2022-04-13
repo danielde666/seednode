@@ -6,3 +6,10 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'HiraginoKakuGothicProNW3';
+  src: url('/HiraginoKakuGothicProNW3.otf) format('otf')
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
