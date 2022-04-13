@@ -231,12 +231,17 @@ const Index = ({ product }) => {
 					<Row>		
 						
 				    <Swiper
-   slidesPerView={1.5}
+   slidesPerView={1}
    centeredSlides={true}
    grabCursor={true}
    keyboard={{
 	 enabled: true,
-   }}
+   }} 
+   breakpoints={{
+	769: {
+	  slidesPerView: 1.5
+	},
+  }}
    loop={true}
    navigation={true}
    modules={[Keyboard, Navigation]}
