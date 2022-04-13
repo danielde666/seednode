@@ -8,7 +8,7 @@
 }
 @font-face {
   font-family: 'HiraginoKakuGothicProNW3';
-  src: url('/HiraginoKakuGothicProNW3.otf') format('otf')
+  src: url('/HiraginoKakuGothicProNW3.otf') format('otf');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
