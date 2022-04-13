@@ -242,6 +242,9 @@ const Index = ({ product }) => {
 	 enabled: true,
    }} 
    breakpoints={{
+	1000: {
+		slidesPerView: 1.75
+	},
 	769: {
 	  slidesPerView: 1.5
 	},
