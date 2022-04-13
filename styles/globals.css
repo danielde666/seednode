@@ -134,7 +134,7 @@ font-style: normal;
 
 }
 .infoholder p{ 
-  line-height: 20px;
+  line-height: 18px;
 }
 .infoholder button{
   background: #000!important;
@@ -402,13 +402,13 @@ footer.fluid{
 
 
     .infoholder p {
-      line-height: 16px;
+      line-height: 18px;
       font-size: 14px;
   }
   *, a, h1, h2, h3, p, span ,footer, button,.infoholder button{
     font-weight: 700;
     font-size: 14px !important;
-    line-height: 16px;
+    line-height: 18px;
 }
 small {
   font-size: 12px !important;
