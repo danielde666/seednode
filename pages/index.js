@@ -231,7 +231,7 @@ const Index = ({ product }) => {
 					<Row>		
 						
 				    <Swiper
-   slidesPerView={1.5}
+   slidesPerView={1.25}
    centeredSlides={true}
    grabCursor={true}
    keyboard={{
@@ -243,7 +243,6 @@ const Index = ({ product }) => {
 	},
   }}
    loop={true}
-   navigation={flase}
    modules={[Keyboard, Navigation]}
    className="mySwiper"
       onSwiper={(swiper) => console.log(swiper)}
