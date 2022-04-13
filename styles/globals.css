@@ -86,7 +86,7 @@ a.ui.card:hover {
 footer.fluid{   
   
   font-weight: 700 !important;
-  font-size: 10px ;
+  font-size: 10px !important;
   line-height: 12px;
   position: relative;
     margin: 0px auto 10px;
@@ -431,6 +431,7 @@ small {
 
   font-size: 12px !important;
 }
+
 }
 
 
