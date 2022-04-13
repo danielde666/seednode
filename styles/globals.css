@@ -103,7 +103,8 @@ footer.fluid{
   min-height: 50px;
   padding: 0px 30px;
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
+  margin-bottom:0px;
 }
 
 footer.fluid a{
@@ -417,6 +418,7 @@ small {
   font-size: 12px !important;
 }
 
+
 }
 
 
@@ -424,6 +426,11 @@ small {
   .maincontent {
     min-height: 80vh;
   }
+  
+.ui.button , button {
+
+  font-size: 12px !important;
+}
 }
 
 
