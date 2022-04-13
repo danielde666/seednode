@@ -282,7 +282,7 @@ const Index = ({ product }) => {
 
 						{connected ? <DiscountExample signer={signer} /> : 
 						
-			<div>PRICE: $2500.00<br></br><br></br>SEED NFT owners - Receive a 50% discount.<br></br><br></br>
+			<div>PRICE: $2500.00<br></br><small>All works signed and dated on reverse.</small><br></br><br></br>SEED NFT owners - Receive a 50% discount.<br></br><br></br>
 			
 			<button onClick={() => {connect()}}>Connect Wallet</button></div>}
 					</div>

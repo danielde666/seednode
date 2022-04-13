@@ -86,7 +86,7 @@ a.ui.card:hover {
 footer.fluid{   
   
   font-weight: 700 !important;
-  font-size: 18px ;
+  font-size: 10px ;
   position: relative;
     margin: 0px auto 10px;
     font-family: heisei-kaku-gothic-std, sans-serif;
@@ -405,7 +405,7 @@ footer.fluid{
       line-height: 18px;
       font-size: 14px;
   }
-  *, a, h1, h2, h3, p, span ,footer, button,.infoholder button{
+  *, a, h1, h2, h3, p, span , button,.infoholder button{
     font-weight: 700;
     font-size: 14px !important;
     line-height: 18px;
