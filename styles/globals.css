@@ -137,7 +137,7 @@ footer.fluid{
 
 
 .swiper-slide {
-  width: 80vw;
+  //width: 80vw !important;
 }
 .infoholder button:hover{
   background-color:#eee!important;

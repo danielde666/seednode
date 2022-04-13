@@ -231,7 +231,7 @@ const Index = ({ product }) => {
 					<Row>		
 						
 				    <Swiper
-   slidesPerView={1}
+   slidesPerView={1.5}
    centeredSlides={true}
    grabCursor={true}
    keyboard={{
