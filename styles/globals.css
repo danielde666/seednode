@@ -208,6 +208,8 @@ footer{
   background: #2DD67B !important;
   color: #fff;
   border-color: #2DD67B !important;
+  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+  
 }
 
 .discountholder button:hover{
